@@ -17,9 +17,15 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+Hi, I’m Lang Cheng, currently pursuing a BA in Education Studies at UCL. My research focuses on Learning Analytics, Multimodel Learning Analytics, AI in Education, and Human–Technology Interaction, with a particular interest in how immersive technologies and AI-driven tools can enhance collaboration, motivation, and equity in learning and helping teachers.
 
-My research interest includes Learning Analytics, Multimodal Learning Analytics, Education Data Mining and Education Technology. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+I have taken part in multiple international research projects. At The University of Hong Kong (HKU), I joined Professor Hu Xiao's group and contributed to studies on VR/AR-based learning analytics in both secondary and primary schools. My work involved guiding students to create VR stories, designing mixed-method studies, and conducting advanced data analysis (quantitative statistics, NLP-based text mining, and topic modeling). Some of these findings have already been presented at CSCL 2025 and JCDL 2025. I am also working on Epistemic Network Analysis (ENA) projects to explore how teachers use learning analytics platforms in practice. During my summer research at UCL’s **EPSURF**, I joined Professor Jessica Ringrose's group and took part in an interdisciplinary study on adolescent mobile-phone policies, leading the literature review and qualitative data analysis (including MCDA multimodal discourse analysis and topic modelling). I carried out a comparative analysis of student samples from two schools, revealing social-class differences in attitudes toward phone use and in perceptions of policy enforcement.
+
+Beyond research, I gained hands-on product and analytical experience. At iFLYTEK, I worked on AI product management and user behaviour analytics, identifying teachers’ needs in lesson planning and optimising product functions. In the UK, I joined the charity Archives of IT (AIT), where I co-authored articles and communication pieces after its 2025 Forum, strengthening my skills in bridging expert knowledge with public engagement.
+
+I continuously expand my technical foundation through advanced study programs, including Computational Social Science (X Academy Summer School) and Mathematics for Machine Learning (UCL Summer School). These programs equipped me with statistical, machine learning, and NLP methods that directly support my research in education.
+
+Outside academia, I’m passionate about football, baseball, and basketball, which keep me energised, collaborative, and competitive both on and off the field.
 
 
 # 🔥 News
@@ -27,9 +33,6 @@ My research interest includes Learning Analytics, Multimodal Learning Analytics,
 - *2024.12*: &nbsp;🎉🎉 I’m excited to announce that our poster, “Empowering Primary School Students to Create Virtual Reality Content: An Outreach Model for Digital Libraries,” has been accepted for inclusion in the proceedings of the 24th ACM/IEEE Joint Conference on Digital Libraries (JCDL 2024) on December 16, 2024 (DOI: 10.1145/3677389.3702606). Co-authored by KA WAI Lau, X Hu, and myself (Lang Cheng), this work presents a novel outreach framework that enables young learners to author immersive VR experiences within digital library settings, and we look forward to sharing our findings with the community at JCDL. 
 
 # 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ISLS 2025</div><img src='images/500x300.png' alt="sym" width="80%"></div></div>
-<div class='paper-box-text' markdown="1">
 
 [Comparing Collaboration Patterns in Virtual Reality Content Co-Creation Activities Between High- and Low-Performing Secondary School Students](https://repository.isls.org/bitstream/1/11954/1/CSCL2025_675-677.pdf)
 
