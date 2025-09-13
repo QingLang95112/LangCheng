@@ -17,6 +17,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+# 💡 About Me
+
 Hi, I’m Lang Cheng, currently pursuing a BA in Education Studies at UCL. My research focuses on Learning Analytics, Multimodel Learning Analytics, AI in Education, and Human–Technology Interaction, with a particular interest in how immersive technologies and AI-driven tools can enhance collaboration, motivation, and equity in learning and helping teachers.
 
 I have taken part in multiple international research projects. At The University of Hong Kong (HKU), I joined Professor Hu Xiao's group and contributed to studies on VR/AR-based learning analytics in both secondary and primary schools. My work involved guiding students to create VR stories, designing mixed-method studies, and conducting advanced data analysis (quantitative statistics, NLP-based text mining, and topic modeling). Some of these findings have already been presented at CSCL 2025 and JCDL 2025. I am also working on Epistemic Network Analysis (ENA) projects to explore how teachers use learning analytics platforms in practice. During my summer research at UCL’s **EPSURF**, I joined Professor Jessica Ringrose's group and took part in an interdisciplinary study on adolescent mobile-phone policies, leading the literature review and qualitative data analysis (including MCDA multimodal discourse analysis and topic modelling). I carried out a comparative analysis of student samples from two schools, revealing social-class differences in attitudes toward phone use and in perceptions of policy enforcement.
