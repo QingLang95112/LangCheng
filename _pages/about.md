@@ -28,7 +28,7 @@ My research interest includes Learning Analytics, Multimodal Learning Analytics,
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ISLS 2025</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ISLS 2025</div><img src='images/500x300.png' alt="sym" width="80%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Comparing Collaboration Patterns in Virtual Reality Content Co-Creation Activities Between High- and Low-Performing Secondary School Students](https://repository.isls.org/bitstream/1/11954/1/CSCL2025_675-677.pdf)
@@ -38,15 +38,10 @@ Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu
 - [Empowering Primary School Students to Create Virtual Reality Content: An Outreach Model for Digital LibrariesEmpowering Primary School Students to Create Virtual Reality Content: An Outreach Model for Digital Libraries](https://dl.acm.org/doi/abs/10.1145/3677389.3702606), Ka Wai Lau, Xiao Hu, **Lang Cheng**, **JCDL 2024**
 
 # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2025.07* The Education, Practice and Society Undergraduate Research Fellowship (EPSURF) 
 
 # 📖 Educations
 - *2023.09 - 2025.12 (now)*, University College London BA(Hons), **Education Studies**. 
-
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
 
 # 💻 Internships
 - *2025.07 - 2025.09*, iFlytek, China.
