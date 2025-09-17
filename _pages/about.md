@@ -148,7 +148,7 @@ During my internship I led analyses of usage logs to surface core user needs and
 # 🎖 Honors and Awards
 - *2025.07* The Education, Practice and Society Undergraduate Research Fellowship (EPSURF) 
 
-# 📖 Educations
+# 📖 Education
 - *2023.09 - 2025.12 (now)*, University College London BA(Hons), **Education Studies**. 
 
 # 💻 Internships
