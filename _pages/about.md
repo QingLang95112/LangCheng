@@ -44,7 +44,7 @@ Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu
 
 # 👷 Projects
 
-**HKU — VR/AR learning analytics**
+***HKU — VR/AR learning analytics***
 
 Role: Research team member — teaching implementation & data analysis
 Tagline: Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.
@@ -54,16 +54,16 @@ During a research placement at HKU I worked as part of a team delivering a VR-au
 
 **Technical highlights**
 
-Mixed-methods pipeline: administration and analysis of structured questionnaires combined with interaction-log processing and qualitative response analysis.
+- *Mixed-methods pipeline: administration and analysis of structured questionnaires combined with interaction-log processing and qualitative response analysis.*
 
-NLP workflow: rigorous preprocessing, TF–IDF and n-gram extraction, experiments with lexicon-based and transformer-based sentiment methods, followed by LDA topic modeling and interactive topic visualizations.
+- *NLP workflow: rigorous preprocessing, TF–IDF and n-gram extraction, experiments with lexicon-based and transformer-based sentiment methods, followed by LDA topic modeling and interactive topic visualizations.*
 
-Research validation: iterative discussion with PhD mentors and lab members to refine analytic choices and integrate qualitative interpretation with model outputs.
+- *Research validation: iterative discussion with PhD mentors and lab members to refine analytic choices and integrate qualitative interpretation with model outputs.*
 
 **Ethics / privacy (one line)**
 All student data were anonymized and handled according to institutional ethics guidance; publicly shared materials include only aggregated or synthetic examples.
 
-**HKU — VR/AR learning experience (primary school, environmental theme)**
+***HKU — VR/AR learning experience (primary school, environmental theme)***
 
 Role: Research team member — activity lead & data analyst
 Tagline: Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.
@@ -73,16 +73,16 @@ I helped organize a VR experience day at a primary school that combined hands-on
 
 **Technical highlights**
 
-Platform log analytics: end-to-end cleaning and time-indexing of event logs, event-type frequency analysis, and activity-pattern visualization to reveal usage patterns and common interaction flows.
+- *Platform log analytics: end-to-end cleaning and time-indexing of event logs, event-type frequency analysis, and activity-pattern visualization to reveal usage patterns and common interaction flows.*
 
-Experimental evaluation: pre/post questionnaire processing and paired comparisons to evaluate changes in self-reported digital literacy and topic understanding.
+- *Experimental evaluation: pre/post questionnaire processing and paired comparisons to evaluate changes in self-reported digital literacy and topic understanding.*
 
-Dissemination: synthesis of literature, methods, and results into a poster for academic dissemination.
+- *Dissemination: synthesis of literature, methods, and results into a poster for academic dissemination.*
 
 **Ethics / privacy (one line)**
 Platform data were anonymized before analysis and reporting; classroom participation followed school consent procedures.
 
-**UCL — Teen mobile phone policy research**
+***UCL — Teen mobile phone policy research***
 
 Role: Research assistant — literature synthesis & multimodal qualitative analysis
 Tagline: Organized cross-disciplinary discussion and used multimodal coding to examine children’s experiences and attitudes toward phone policies across social contexts.
@@ -90,18 +90,18 @@ Tagline: Organized cross-disciplinary discussion and used multimodal coding to e
 Project summary (copyable):
 As part of a team exploring adolescent phone-use policies, I supported organization of interdisciplinary talks, led parts of the literature synthesis, and applied multimodal critical discourse methods to student-produced data (including drawings and interviews). I contributed to systematic coding and thematic analysis and supported comparative interpretation across schools. The analysis highlighted differences in phone use and policy perceptions that aligned with students’ social backgrounds, and the results fed into a broader policy-focused literature review.
 
-**Technical highlights**
+***Technical highlights***
 
-Research coordination: supported academic discussion forums to connect perspectives across fields and synthesize implications for policy.
+- *Research coordination: supported academic discussion forums to connect perspectives across fields and synthesize implications for policy.*
 
-Multimodal analysis: applied MCDA methods to combine visual and verbal student data into a coherent coding frame.
+- *Multimodal analysis: applied MCDA methods to combine visual and verbal student data into a coherent coding frame.*
 
-Comparative theme analysis: produced a structured thematic map that highlighted differences in attitudes and practices across social groups.
+- *Comparative theme analysis: produced a structured thematic map that highlighted differences in attitudes and practices across social groups.*
 
 **Ethics / privacy (one line)**
 All pupil contributions were collected under appropriate consent and anonymized prior to analysis.
 
-**HKU (ongoing) — ENA & topic modeling**
+***HKU (ongoing) — ENA & topic modeling***
 
 Role: Data analyst — topic modeling & ENA pipeline lead
 Tagline: Turned free-text teacher feedback into topic-coded inputs for Epistemic Network Analysis to compare discourse networks across instructional phases.
@@ -111,16 +111,16 @@ My current task is to transform a corpus of teacher feedback messages from a lea
 
 **Technical highlights**
 
-Topic modeling: careful model selection using coherence metrics complemented by manual inspection to ensure interpretability.
+- *Topic modeling: careful model selection using coherence metrics complemented by manual inspection to ensure interpretability.*
 
-ENA workflow: conversion of probabilistic topic outputs into binary co-occurrence matrices and construction of ENA units for stage-wise network comparison.
+- *ENA workflow: conversion of probabilistic topic outputs into binary co-occurrence matrices and construction of ENA units for stage-wise network comparison.*
 
-Reproducibility: end-to-end scripts for cleaning, phrase merging, topic probability mapping, and export to ENA-compatible tables.
+- *Reproducibility: end-to-end scripts for cleaning, phrase merging, topic probability mapping, and export to ENA-compatible tables.*
 
 **Ethics / privacy (one line)**
 Teacher messages are de-identified before analysis; ENA visualizations present only aggregate network structure without raw text.
 
-**iFlytek — Data analysis & AI product internship**
+***iFlytek — Data analysis & AI product internship***
 
 Role: Data analyst & AI product support (intern)
 Tagline: Conducted user-behavior analysis to inform product priorities, diagnosed data integration issues, and prototyped an exemplar AI agent for instructor support.
@@ -130,11 +130,11 @@ During my internship I led analyses of usage logs to surface core user needs and
 
 **Technical highlights**
 
-User-behavior analysis: extraction and categorization of free-text queries, high-level usage pattern analysis, and generation of prioritized feature recommendations.
+- *User-behavior analysis: extraction and categorization of free-text queries, high-level usage pattern analysis, and generation of prioritized feature recommendations.*
 
-Product debugging: cross-source comparison to identify data granularity mismatches and a documented fix plan for broken navigation.
+- *Product debugging: cross-source comparison to identify data granularity mismatches and a documented fix plan for broken navigation.*
 
-AI prototyping: designed a domain-focused agent with iterative prompt engineering to produce actionable pedagogical suggestions.
+- *AI prototyping: designed a domain-focused agent with iterative prompt engineering to produce actionable pedagogical suggestions.*
 
 
 # 🎖 Honors and Awards
