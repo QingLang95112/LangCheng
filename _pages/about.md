@@ -63,6 +63,7 @@ During a research placement at HKU I worked as part of a team delivering a VR-au
 **Ethics / privacy (one line)**
 All student data were anonymized and handled according to institutional ethics guidance; publicly shared materials include only aggregated or synthetic examples.
 
+
 ***HKU — VR/AR learning experience (primary school, environmental theme)***
 
 Role: Research team member — activity lead & data analyst
@@ -81,6 +82,7 @@ I helped organize a VR experience day at a primary school that combined hands-on
 
 **Ethics / privacy (one line)**
 Platform data were anonymized before analysis and reporting; classroom participation followed school consent procedures.
+
 
 ***UCL — Teen mobile phone policy research***
 
@@ -101,6 +103,7 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
 **Ethics / privacy (one line)**
 All pupil contributions were collected under appropriate consent and anonymized prior to analysis.
 
+
 ***HKU (ongoing) — ENA & topic modeling***
 
 Role: Data analyst — topic modeling & ENA pipeline lead
@@ -119,6 +122,7 @@ My current task is to transform a corpus of teacher feedback messages from a lea
 
 **Ethics / privacy (one line)**
 Teacher messages are de-identified before analysis; ENA visualizations present only aggregate network structure without raw text.
+
 
 ***iFlytek — Data analysis & AI product internship***
 
