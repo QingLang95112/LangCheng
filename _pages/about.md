@@ -44,7 +44,7 @@ Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu
 
 # 👷 Projects
 
-***HKU — VR/AR learning analytics***
+- ***HKU — VR/AR learning analytics***
 
 Role: Research team member — teaching implementation & data analysis
 Tagline: Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.
@@ -64,7 +64,7 @@ During a research placement at HKU I worked as part of a team delivering a VR-au
 All student data were anonymized and handled according to institutional ethics guidance; publicly shared materials include only aggregated or synthetic examples.
 
 
-***HKU — VR/AR learning experience (primary school, environmental theme)***
+- ***HKU — VR/AR learning experience (primary school, environmental theme)***
 
 Role: Research team member — activity lead & data analyst
 Tagline: Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.
@@ -84,7 +84,7 @@ I helped organize a VR experience day at a primary school that combined hands-on
 Platform data were anonymized before analysis and reporting; classroom participation followed school consent procedures.
 
 
-***UCL — Teen mobile phone policy research***
+- ***UCL — Teen mobile phone policy research***
 
 Role: Research assistant — literature synthesis & multimodal qualitative analysis
 Tagline: Organized cross-disciplinary discussion and used multimodal coding to examine children’s experiences and attitudes toward phone policies across social contexts.
@@ -104,7 +104,7 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
 All pupil contributions were collected under appropriate consent and anonymized prior to analysis.
 
 
-***HKU (ongoing) — ENA & topic modeling***
+- ***HKU (ongoing) — ENA & topic modeling***
 
 Role: Data analyst — topic modeling & ENA pipeline lead
 Tagline: Turned free-text teacher feedback into topic-coded inputs for Epistemic Network Analysis to compare discourse networks across instructional phases.
@@ -124,7 +124,7 @@ My current task is to transform a corpus of teacher feedback messages from a lea
 Teacher messages are de-identified before analysis; ENA visualizations present only aggregate network structure without raw text.
 
 
-***iFlytek — Data analysis & AI product internship***
+- ***iFlytek — Data analysis & AI product internship***
 
 Role: Data analyst & AI product support (intern)
 Tagline: Conducted user-behavior analysis to inform product priorities, diagnosed data integration issues, and prototyped an exemplar AI agent for instructor support.
