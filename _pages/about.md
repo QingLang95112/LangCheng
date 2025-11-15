@@ -63,6 +63,8 @@ During a research placement at HKU I worked as part of a team delivering a VR-au
 **Ethics / privacy (one line)**
 All student data were anonymized and handled according to institutional ethics guidance; publicly shared materials include only aggregated or synthetic examples.
 
+<img width="1724" height="966" alt="image" src="https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a" />
+
 <br><br>
 
 ## ***HKU — VR/AR learning experience (primary school, environmental theme)***
@@ -70,7 +72,7 @@ All student data were anonymized and handled according to institutional ethics g
 Role: Research team member — activity lead & data analyst
 Tagline: Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.
 
-Project summary (copyable):
+Project summary:
 I helped organize a VR experience day at a primary school that combined hands-on VR creation with immersive VR viewing of environmental story content. Activities included step-by-step student guidance for capturing and editing VR spaces, facilitated group reflection interviews, and pre/post implementation surveys to capture perceived learning and interest. In addition to the classroom study, I analyzed platform event logs exported from our web tool. The log analysis informed usage patterns and user journeys, and the pre/post analyses supported interpretation of how the intervention related to students’ self-reported learning outcomes. Results were summarized and prepared as a conference poster.
 
 **Technical highlights**
@@ -84,6 +86,8 @@ I helped organize a VR experience day at a primary school that combined hands-on
 **Ethics / privacy (one line)**
 Platform data were anonymized before analysis and reporting; classroom participation followed school consent procedures.
 
+<img width="2048" height="1155" alt="image" src="https://github.com/user-attachments/assets/9b0aa347-f89c-42e9-a7b9-0233515e0334" />
+
 <br><br>
 
 ## ***UCL — Teen mobile phone policy research***
@@ -91,7 +95,7 @@ Platform data were anonymized before analysis and reporting; classroom participa
 Role: Research assistant — literature synthesis & multimodal qualitative analysis
 Tagline: Organized cross-disciplinary discussion and used multimodal coding to examine children’s experiences and attitudes toward phone policies across social contexts.
 
-Project summary (copyable):
+Project summary:
 As part of a team exploring adolescent phone-use policies, I supported organization of interdisciplinary talks, led parts of the literature synthesis, and applied multimodal critical discourse methods to student-produced data (including drawings and interviews). I contributed to systematic coding and thematic analysis and supported comparative interpretation across schools. The analysis highlighted differences in phone use and policy perceptions that aligned with students’ social backgrounds, and the results fed into a broader policy-focused literature review.
 
 ***Technical highlights***
@@ -107,7 +111,7 @@ All pupil contributions were collected under appropriate consent and anonymized 
 
 <br><br>
 
-## ***HKU (ongoing) — ENA & topic modeling***
+## ***HKU — ENA & topic modeling***
 
 Role: Data analyst — topic modeling & ENA pipeline lead
 Tagline: Turned free-text teacher feedback into topic-coded inputs for Epistemic Network Analysis to compare discourse networks across instructional phases.
