@@ -49,20 +49,23 @@ Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu
 Role: Research team member — teaching implementation & data analysis
 Tagline: Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.
 
-Project summary (copyable):
-During a research placement at HKU I worked as part of a team delivering a VR-authoring curriculum to secondary students. I taught students how to use a low-barrier, web-based VR creation tool (360° capture, scene editing, annotations, and cross-space linking), supported their technical needs, and guided a project-based assignment in which students produced group VR stories. We collected interaction logs, instructor ratings of student projects, and open-ended reflective responses. My analysis workflow combined robust survey statistics, systematic text preprocessing, lexical and n-gram analysis, trials of lexicon- and transformer-based sentiment methods, and ultimately topic modeling to surface thematic differences between performance groups. One line of the work (text feature results) was presented as a conference poster and other findings are in a manuscript under preparation.
+Project summary:
+During a research placement at HKU, I worked as part of a team delivering a VR-authoring curriculum to lower-secondary students. I taught students how to use a low-barrier, web-based VR creation tool (360° capture, scene editing, annotations, and cross-space linking), supported their technical needs, and guided a project-based assignment in which groups produced their own VR stories. We collected interaction logs from the platform, instructor ratings of the projects, a Likert-scale questionnaire on collaborative learning experience, and open-ended reflective responses about collaboration challenges and solutions.
+
+On the analysis side, I combined robust survey statistics with a full NLP pipeline. Using JASP, I ran normality checks (Shapiro–Wilk), homogeneity tests (Levene), non-parametric comparisons (Mann–Whitney U), and Bayesian independent samples tests to compare collaboration experience across performance groups. In Python, I implemented systematic text preprocessing (NLTK-based tokenisation, lemmatisation, stopword removal), TF–IDF and n-gram extraction, and trials of both lexicon-based (VADER) and transformer-based (Twitter-RoBERTa) sentiment methods, evaluating them against a human-coded “gold standard” (accuracy, precision, recall, F1). Because the model performed poorly on neutral responses, I ultimately shifted to LDA topic modelling with coherence-based model selection and interactive pyLDAvis visualisations to surface thematic differences between high- and low-performing groups. One line of the work (text feature results) was presented as a CSCL 2025 poster, and the broader findings are part of a manuscript currently under review.
 
 **Technical highlights**
 
-- *Mixed-methods pipeline: administration and analysis of structured questionnaires combined with interaction-log processing and qualitative response analysis.*
+- *Mixed-methods pipeline: Integrated a structured collaboration-experience questionnaire with VR interaction logs, instructor ratings, and open-ended reflections to study group collaboration from multiple data sources.*
 
-- *NLP workflow: rigorous preprocessing, TF–IDF and n-gram extraction, experiments with lexicon-based and transformer-based sentiment methods, followed by LDA topic modeling and interactive topic visualizations.*
+- *Statistics & NLP workflow: Used JASP for normality, non-parametric, and Bayesian tests; built a Python pipeline for rigorous preprocessing, TF–IDF and n-gram extraction, experiments with VADER and Twitter-RoBERTa sentiment, and coherence-guided LDA topic modelling with pyLDAvis visualisation.*
 
-- *Research validation: iterative discussion with PhD mentors and lab members to refine analytic choices and integrate qualitative interpretation with model outputs.*
+- *Research validation: Iteratively refined analytic choices with PhD mentors and lab members, compared model outputs against human-coded labels, and linked quantitative patterns back to original student reflections to support theoretically grounded interpretation.*
 
 **Ethics / privacy (one line)**
 All student data were anonymized and handled according to institutional ethics guidance; publicly shared materials include only aggregated or synthetic examples.
 
+Examples of data visualization during internship:
 <img width="1724" height="966" alt="image" src="https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a" />
 
 <br><br>
