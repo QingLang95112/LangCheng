@@ -135,28 +135,11 @@ Teacher messages are de-identified before analysis; ENA visualizations present o
 
 <br><br>
 
-## ***iFlytek — Data analysis & AI product internship***
-
-Role: Data analyst & AI product support (intern)
-Tagline: Conducted user-behavior analysis to inform product priorities, diagnosed data integration issues, and prototyped an exemplar AI agent for instructor support.
-
-Project summary (copyable):
-During my internship I led analyses of usage logs to surface core user needs and usage trends for an AI-assisted teacher tool. I processed dialogue logs and service metrics to identify which features users relied on most, designed rule-based categorizations to surface common use-cases, and translated findings into product recommendations. I also investigated and documented a cause of broken navigation between visualization components by comparing different data sources and their granularities, and proposed remediation steps. Finally, I designed an exemplar “simulated reviewer” agent to provide targeted pedagogical feedback for a teacher competition, iterating prompt design to improve suggestion quality.
-
-**Technical highlights**
-
-- *User-behavior analysis: extraction and categorization of free-text queries, high-level usage pattern analysis, and generation of prioritized feature recommendations.*
-
-- *Product debugging: cross-source comparison to identify data granularity mismatches and a documented fix plan for broken navigation.*
-
-- *AI prototyping: designed a domain-focused agent with iterative prompt engineering to produce actionable pedagogical suggestions.*
-
 
 # 🎖 Honors and Awards
-- *2025.07* The Education, Practice and Society Undergraduate Research Fellowship (EPSURF) 
+- *2025.07* The Education, Practice and Society Undergraduate Research Fellowship (EPSURF)
+- *2026.05* IEEE TCLT Student Award
 
 # 📖 Education
 - *2023.09 - 2025.12 (now)*, University College London BA(Hons), **Education Studies**. 
 
-# 💻 Internships
-- *2025.07 - 2025.09*, iFlytek, China.
