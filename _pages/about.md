@@ -11,60 +11,73 @@ redirect_from:
 
 <div class="panels">
 
-<section class="panel" id="about" role="tabpanel" aria-labelledby="tab-about">
+<section class="panel panel--about" id="about" role="tabpanel" aria-labelledby="tab-about">
+
+  <div class="hero">
+    <img class="hero__photo" src="{{ author.avatar }}" alt="Portrait of {{ author.name }}">
+    <div class="hero__main">
+      <h1 class="hero__name">{{ author.name }}</h1>
+      <p class="hero__lead">I study how learning analytics and AI can make collaborative learning more visible, and more useful to the teachers running it.</p>
+      <div class="hero__text">
+        <p>I’m a first-year M.S. student in Education Data Science at Stanford. Before that I did a BA in Education Studies at University College London, graduating with First Class Honours.</p>
+        <p>From 2023 to 2026 I was a research assistant in Dr. Xiao Hu’s CCMIR Lab at The University of Hong Kong, working on VR/AR learning analytics, Epistemic Network Analysis, and large language models for qualitative coding. At UCL, as an EPSURF fellow with Professor Jessica Ringrose, I studied adolescent mobile-phone policies through multimodal discourse analysis.</p>
+      </div>
+    </div>
+    <aside class="hero__side" aria-label="Contact and profiles">
+      <p class="hero__where">Stanford, California</p>
+      <ul class="hero__links">
+        {% if author.email %}<li><a href="mailto:{{ author.email }}" target="_self">Email</a></li>{% endif %}
+        {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}">Google Scholar</a></li>{% endif %}
+        {% if author.linkedin %}<li><a href="{{ author.linkedin }}">LinkedIn</a></li>{% endif %}
+        {% if author.orcid %}<li><a href="{{ author.orcid }}">ORCID</a></li>{% endif %}
+        {% if author.researchgate %}<li><a href="{{ author.researchgate }}">ResearchGate</a></li>{% endif %}
+        {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
+      </ul>
+    </aside>
+  </div>
+
   {% include research-map.html %}
 
-  <div class="intro">
-  <div class="intro__text">
-    <p>I’m a first-year M.S. student in Education Data Science at Stanford University. Before Stanford, I received my BA in Education Studies from University College London with First Class Honours.</p>
-    <p>My research focuses on learning analytics, multimodal learning analytics, AI in education and human–technology interaction, with a particular interest in how immersive technologies and AI-driven tools can enhance collaboration, motivation and equity in learning, and help teachers.</p>
-    <p>At The University of Hong Kong, I work with Dr. Xiao Hu on VR/AR-based learning analytics, Epistemic Network Analysis, and using large language models to automate qualitative coding. At UCL, as an EPSURF fellow with Professor Jessica Ringrose, I studied adolescent mobile-phone policies through multimodal discourse analysis.</p>
-    <p>Outside academia I play football, baseball and basketball.</p>
+  <div class="about-grid">
+    <div class="about-grid__main" id="news">
+      <h2 class="block-title">News</h2>
+      <ul class="news">
+        <li><time>2026.09</time><span>Started the M.S. in Education Data Science at Stanford.</span></li>
+        <li><time>2026.06</time><span>Graduated from UCL with First Class Honours.</span></li>
+        <li><time>2026.05</time><span>Received the IEEE TCLT Student Award.</span></li>
+        <li><time>2026</time><span>First-author paper on automating Epistemic Network Analysis with LLMs accepted at ICALT 2026.</span></li>
+        <li><time>2025.07</time><span>Awarded the EPSURF undergraduate research fellowship at UCL.</span></li>
+        <li><time>2025.06</time><span>Poster on collaboration patterns in VR co-creation accepted at CSCL 2025.</span></li>
+        <li><time>2024.12</time><span>Poster on an outreach model for student VR creation accepted at JCDL 2024 (<a href="https://doi.org/10.1145/3677389.3702606">DOI</a>).</span></li>
+      </ul>
+    </div>
+    <aside class="about-grid__side">
+      <h2 class="block-title">Outside research</h2>
+      <p>I play football, baseball and basketball. I also love travelling in Western Europe and am interested in Western European history.</p>
+    </aside>
   </div>
-
-  <ul class="intro__links">
-    {% if author.email %}<li><a href="mailto:{{ author.email }}" target="_self">Email</a></li>{% endif %}
-    {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}">Google Scholar</a></li>{% endif %}
-    {% if author.linkedin %}<li><a href="{{ author.linkedin }}">LinkedIn</a></li>{% endif %}
-    {% if author.orcid %}<li><a href="{{ author.orcid }}">ORCID</a></li>{% endif %}
-    {% if author.researchgate %}<li><a href="{{ author.researchgate }}">ResearchGate</a></li>{% endif %}
-    {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
-  </ul>
-  </div>
-
-<div class="section" id="news">
-  <h2 class="section__label">News</h2>
-  <div class="section__body">
-    <ul class="news">
-      <li><time>2026.09</time><span>Started the M.S. in Education Data Science at Stanford.</span></li>
-      <li><time>2026.06</time><span>Graduated from UCL with First Class Honours.</span></li>
-      <li><time>2026.05</time><span>Received the IEEE TCLT Student Award.</span></li>
-      <li><time>2026</time><span>First-author paper on automating Epistemic Network Analysis with LLMs accepted at ICALT 2026.</span></li>
-      <li><time>2025.07</time><span>Awarded the Education, Practice and Society Undergraduate Research Fellowship (EPSURF) at UCL.</span></li>
-      <li><time>2025.06</time><span>Poster on collaboration patterns in VR co-creation accepted at CSCL 2025.</span></li>
-      <li><time>2024.12</time><span>Poster on an outreach model for student VR creation accepted at JCDL 2024 (<a href="https://doi.org/10.1145/3677389.3702606">DOI</a>).</span></li>
-    </ul>
-  </div>
-</div>
 </section>
 
-<section class="panel" id="research" role="tabpanel" aria-labelledby="tab-research" markdown="1">
-<div class="panel__body" markdown="1">
-
-<ul class="entries">
-  <li class="entry">
-    <div class="entry__row"><h3 class="entry__title">CCMIR Lab, The University of Hong Kong</h3><span class="entry__date">2023.12 – 2026.10</span></div>
-    <p class="entry__meta">Research assistant, supervised by Dr. Xiao Hu</p>
-  </li>
-  <li class="entry">
-    <div class="entry__row"><h3 class="entry__title">University College London</h3><span class="entry__date">2025.05 – 2025.12</span></div>
-    <p class="entry__meta">Undergraduate research fellow (EPSURF), supervised by Professor Jessica Ringrose</p>
-  </li>
-</ul>
-
-<h4 class="section__sub">Selected work</h4>
+<section class="panel panel--research" id="research" role="tabpanel" aria-labelledby="tab-research" markdown="1">
+<aside class="positions">
+  <h2 class="block-title">Positions</h2>
+  <ul class="entries">
+    <li class="entry">
+      <h3 class="entry__title">CCMIR Lab, The University of Hong Kong</h3>
+      <p class="entry__meta">Research assistant, supervised by Dr. Xiao Hu</p>
+      <p class="entry__when">2023.12 – 2026.10</p>
+    </li>
+    <li class="entry">
+      <h3 class="entry__title">University College London</h3>
+      <p class="entry__meta">Undergraduate research fellow (EPSURF), supervised by Professor Jessica Ringrose</p>
+      <p class="entry__when">2025.05 – 2025.12</p>
+    </li>
+  </ul>
+</aside>
 
 <div class="folds" markdown="1">
+<h2 class="block-title">Selected work</h2>
+
 
 <details class="fold" markdown="1">
 <summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Three-model voting pipeline for qualitative coding</p></summary>
@@ -83,7 +96,7 @@ I built an automated LLM annotation pipeline in which three models classify each
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Teaching implementation and data analysis, presented at CSCL 2025</p></summary>
+<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Teaching implementation and data analysis, presented at CSCL 2025</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.</p>
@@ -111,7 +124,7 @@ On the analysis side, I combined robust survey statistics with a full NLP pipeli
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Activity lead and data analyst, presented at JCDL 2024</p></summary>
+<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/9b0aa347-f89c-42e9-a7b9-0233515e0334" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Activity lead and data analyst, presented at JCDL 2024</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.</p>
@@ -187,64 +200,59 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
 </details>
 
 </div>
-</div>
 </section>
 
-<section class="panel" id="publications" role="tabpanel" aria-labelledby="tab-publications">
+<section class="panel panel--pubs" id="publications" role="tabpanel" aria-labelledby="tab-publications">
   {% include publications.html %}
 </section>
 
-<section class="panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
-  <p class="panel__intro">Small tools and side projects I build outside my research.</p>
+<section class="panel panel--projects" id="projects" role="tabpanel" aria-labelledby="tab-projects">
   {% include projects.html %}
 </section>
 
-<section class="panel" id="background" role="tabpanel" aria-labelledby="tab-background">
-<div class="section" id="education">
-  <h2 class="section__label">Education</h2>
-  <div class="section__body">
+<section class="panel panel--background" id="background" role="tabpanel" aria-labelledby="tab-background">
+  <div class="col" id="education">
+    <h2 class="block-title">Education</h2>
     <ul class="entries">
       <li class="entry">
-        <div class="entry__row"><h3 class="entry__title">Stanford University</h3><span class="entry__date">2026 – 2028</span></div>
+        <h3 class="entry__title">Stanford University</h3>
         <p class="entry__meta">M.S. in Education Data Science</p>
-        <p class="entry__meta">Statistical Methods, Data Processing, Collaborative Learning Analytics with NLP/LLMs, Machine Learning</p>
+        <p class="entry__when">2026 – 2028</p>
+        <p class="entry__note">Statistical Methods, Data Processing, Collaborative Learning Analytics with NLP/LLMs, Machine Learning</p>
       </li>
       <li class="entry">
-        <div class="entry__row"><h3 class="entry__title">University College London</h3><span class="entry__date">2023 – 2026</span></div>
+        <h3 class="entry__title">University College London</h3>
         <p class="entry__meta">BA (Hons) in Education Studies, First Class Honours, GPA 3.89 (WES)</p>
-        <p class="entry__meta">Quantitative Analysis, Quantitative &amp; Qualitative Methods, Education Policy Analysis, Survey Instrument Design</p>
+        <p class="entry__when">2023 – 2026</p>
+        <p class="entry__note">Quantitative Analysis, Quantitative &amp; Qualitative Methods, Education Policy Analysis, Survey Instrument Design</p>
       </li>
     </ul>
   </div>
-</div>
 
-<div class="section" id="honors">
-  <h2 class="section__label">Honors</h2>
-  <div class="section__body">
+  <div class="col" id="honors">
+    <h2 class="block-title">Honors</h2>
     <ul class="entries">
       <li class="entry">
-        <div class="entry__row"><h3 class="entry__title">IEEE TCLT Student Award</h3><span class="entry__date">2026</span></div>
+        <h3 class="entry__title">IEEE TCLT Student Award</h3>
+        <p class="entry__when">2026</p>
       </li>
       <li class="entry">
-        <div class="entry__row"><h3 class="entry__title">Education, Practice and Society Undergraduate Research Fellowship (EPSURF)</h3><span class="entry__date">2025</span></div>
+        <h3 class="entry__title">Education, Practice and Society Undergraduate Research Fellowship (EPSURF)</h3>
         <p class="entry__meta">University College London</p>
+        <p class="entry__when">2025</p>
       </li>
     </ul>
   </div>
-</div>
 
-<div class="section" id="skills">
-  <h2 class="section__label">Skills</h2>
-  <div class="section__body">
+  <div class="col" id="skills">
+    <h2 class="block-title">Skills</h2>
     <dl class="kv">
       <div><dt>Data science</dt><dd>Python, R, SQL, SPSS, JASP, pandas, scikit-learn, NLTK, Hugging Face, TraMineR, NVivo, Seaborn</dd></div>
       <div><dt>AI</dt><dd>Prompt engineering, LLM evaluation</dd></div>
       <div><dt>Training</dt><dd>Mathematics for Machine Learning, UCL Summer School (2025); Mathematics for ML and Data Science Specialization, DeepLearning.AI (2025); Computational Social Science, X Academy Summer School</dd></div>
       <div><dt>Languages</dt><dd>Mandarin Chinese (native), English (fluent)</dd></div>
-      <div><dt>Interests</dt><dd>Soccer, basketball, travel in Western Europe, Western European history</dd></div>
     </dl>
   </div>
-</div>
 </section>
 
 </div>

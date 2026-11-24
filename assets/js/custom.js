@@ -190,7 +190,20 @@
     });
     if (id) {
       var info = nodes[id];
-      detailCap.textContent = info.n.label + ' appears in ' + info.count + ' of ' + total + ' projects: ' + info.projects.join('; ') + '.';
+      detailCap.textContent = '';
+      var head = document.createElement('strong');
+      head.textContent = info.n.label;
+      var sub = document.createElement('span');
+      sub.textContent = ' appears in ' + info.count + ' of ' + total + ' projects:';
+      var ul = document.createElement('ul');
+      info.projects.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+      detailCap.appendChild(head);
+      detailCap.appendChild(sub);
+      detailCap.appendChild(ul);
       detailCap.hidden = false;
       defaultCap.hidden = true;
     } else {

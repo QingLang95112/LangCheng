@@ -1,15 +1,17 @@
-<ul class="entries">
+<ol class="pubs" reversed>
 {% for pub in site.data.publications %}
-  <li class="entry">
-    <div class="entry__row">
-      <h3 class="entry__title">{% if pub.links and pub.links.size > 0 %}<a href="{{ pub.links[0].url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
-      <span class="entry__date">{{ pub.venue }}{% if pub.type %}<br>{{ pub.type }}{% endif %}</span>
+  <li class="pub">
+    <span class="pub__year" aria-hidden="true">{{ pub.year }}</span>
+    <div class="pub__main">
+      <h3 class="pub__title">{% if pub.links and pub.links.size > 0 %}<a href="{{ pub.links[0].url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+      <p class="pub__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {% if pub.venue_full %}<p class="pub__venue">{{ pub.venue_full }}</p>{% endif %}
     </div>
-    <p class="entry__meta">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
-    {% if pub.venue_full %}<p class="entry__meta"><em>{{ pub.venue_full }}</em></p>{% endif %}
-    {% if pub.links and pub.links.size > 0 %}
-    <div class="entry__links">{% for l in pub.links %}<a href="{{ l.url }}">{{ l.name }}</a>{% endfor %}</div>
-    {% endif %}
+    <div class="pub__side">
+      <span class="pub__badge">{{ pub.venue }}</span>
+      {% if pub.type %}<span class="pub__type">{{ pub.type }}</span>{% endif %}
+      {% if pub.links %}{% for l in pub.links %}<a class="pub__link" href="{{ l.url }}">{{ l.name }}</a>{% endfor %}{% endif %}
+    </div>
   </li>
 {% endfor %}
-</ul>
+</ol>
