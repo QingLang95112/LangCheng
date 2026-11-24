@@ -173,8 +173,27 @@
     nodeEls.push(g);
   });
 
+  /* Default side list: skills used in the most projects */
+  var topList = fig.querySelector('.map__top');
+  if (topList) {
+    data.nodes.slice().sort(function (a, b) { return nodes[b.id].count - nodes[a.id].count; })
+      .slice(0, 5).forEach(function (n) {
+        var li = document.createElement('li');
+        var name = document.createElement('span');
+        name.textContent = n.label;
+        var c = document.createElement('span');
+        c.className = 'map__top-count';
+        c.textContent = nodes[n.id].count + ' projects';
+        li.appendChild(name);
+        li.appendChild(c);
+        li.addEventListener('mouseenter', function () { if (!pinned) focusNode(n.id, true); });
+        li.addEventListener('mouseleave', function () { if (!pinned) focusNode(null, true); });
+        topList.appendChild(li);
+      });
+  }
+
   var pinned = null;
-  function focusNode(id) {
+  function focusNode(id, quiet) {
     fig.classList.toggle('is-tracing', !!id);
     edgeEls.forEach(function (e) {
       e.classList.toggle('is-on', !!id && (e.dataset.a === id || e.dataset.b === id));
@@ -188,6 +207,7 @@
       g.classList.toggle('is-on', g.dataset.id === id);
       g.classList.toggle('is-linked', !!linked[g.dataset.id]);
     });
+    if (quiet) return;
     if (id) {
       var info = nodes[id];
       detailCap.textContent = '';

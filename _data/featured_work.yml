@@ -1,0 +1,17 @@
+# 在还没有个人小项目时，Projects 标签页先展示这几项研究工作。
+# 一旦 _data/projects.yml 里有了项目，这里就不再显示。
+- title: "LLM annotation pipeline"
+  description: "Three LLMs label each student discussion post and a majority vote decides. Coded 390 posts with κ = 0.621 against human labels."
+  tags: [LLMs, Python, Model evaluation]
+  where: HKU
+  mark: "LLM"
+- title: "VR/AR learning analytics"
+  description: "Combined 69,000+ interaction logs, survey statistics and NLP on student reflections to compare high- and low-performing groups."
+  tags: [Python, NLP, Statistics]
+  where: HKU, CSCL 2025
+  image: https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a
+- title: "VR learning day evaluation"
+  description: "Ran a VR creation day in a primary school; platform log analytics and pre/post tests showed a significant gain in digital literacy."
+  tags: [Log analytics, Statistics, Data visualization]
+  where: HKU, JCDL 2024
+  image: https://github.com/user-attachments/assets/9b0aa347-f89c-42e9-a7b9-0233515e0334

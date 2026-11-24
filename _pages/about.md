@@ -26,8 +26,13 @@ redirect_from:
         <a class="btn" href="files/Lang_Cheng_Resume.pdf">Download résumé (PDF)</a>
       </p>
     </div>
-    <aside class="hero__side" aria-label="Profiles">
-      <p class="hero__where">Based in Stanford, California</p>
+    <aside class="hero__side" aria-label="At a glance and profiles">
+      <dl class="facts">
+        <div><dt>Now</dt><dd>M.S. Education Data Science, Stanford (2026–2028)</dd></div>
+        <div><dt>Before</dt><dd>Research assistant, HKU CCMIR Lab; EPSURF fellow, UCL</dd></div>
+        <div><dt>Recognition</dt><dd>IEEE TCLT Student Award, 2026</dd></div>
+        <div><dt>Based in</dt><dd>Stanford, California</dd></div>
+      </dl>
       <ul class="hero__links">
         {% if author.linkedin %}<li><a href="{{ author.linkedin }}">LinkedIn</a></li>{% endif %}
         {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
@@ -88,11 +93,20 @@ redirect_from:
       <h3 class="entry__title">CCMIR Lab, The University of Hong Kong</h3>
       <p class="entry__meta">Research assistant, supervised by Dr. Xiao Hu</p>
       <p class="entry__when">2023.12 – 2026.10</p>
+      <ul class="entry__points">
+        <li>Automated qualitative coding of 390 discussion posts with a three-model LLM pipeline (κ = 0.621)</li>
+        <li>Processed 69,000+ interaction logs from VR-supported collaborative learning</li>
+        <li>Co-authored papers at CSCL 2025 and JCDL 2024; first author at ICALT 2026</li>
+      </ul>
     </li>
     <li class="entry">
       <h3 class="entry__title">University College London</h3>
       <p class="entry__meta">Undergraduate research fellow (EPSURF), supervised by Professor Jessica Ringrose</p>
       <p class="entry__when">2025.05 – 2025.12</p>
+      <ul class="entry__points">
+        <li>Structured literature review on UK smartphone bans for the “Smartphone Free Childhoods” project</li>
+        <li>Multimodal and thematic coding of student drawings and parent interviews</li>
+      </ul>
     </li>
   </ul>
 </aside>
@@ -101,7 +115,7 @@ redirect_from:
 <h2 class="block-title">Selected work</h2>
 
 
-<details class="fold" markdown="1">
+<details class="fold" markdown="1" open>
 <summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Automated the coding of 390 posts, κ = 0.621 against human labels</p></summary>
 <div class="fold__content" markdown="1">
 

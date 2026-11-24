@@ -19,8 +19,17 @@
   {% endfor %}
 </ul>
 {% else %}
-<div class="project-empty">
-  <p class="project-empty__title">Side projects will appear here.</p>
-  <p>Until then, my code lives on <a href="https://github.com/{{ site.author.github }}">GitHub</a>.</p>
+<div class="project-note">
+  <p><strong>Side projects are coming soon.</strong> In the meantime, here is some of my research work. My code is on <a href="https://github.com/{{ site.author.github }}">GitHub</a>.</p>
 </div>
+<ul class="project-grid">
+  {% for p in site.data.featured_work %}
+  <li class="project">
+    <a class="project__media" href="#experience" target="_self" aria-hidden="true" tabindex="-1">{% if p.image %}<img src="{{ p.image }}" alt="" loading="lazy">{% else %}<span>{{ p.mark }}</span>{% endif %}</a>
+    <h3 class="project__title"><a href="#experience" target="_self">{{ p.title }}</a></h3>
+    <p class="project__desc">{{ p.description }}</p>
+    <p class="project__meta">{{ p.tags | join: ", " }}<span>{{ p.where }}</span></p>
+  </li>
+  {% endfor %}
+</ul>
 {% endif %}
