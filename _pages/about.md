@@ -9,20 +9,12 @@ redirect_from:
 
 {% assign author = site.author %}
 
-<header class="intro" id="about">
-  <div class="intro__top">
-    <img class="intro__avatar" src="{{ author.avatar }}" alt="{{ author.name }}">
-    <div>
-      <h1 class="intro__name">{{ author.name }}</h1>
-      <p class="intro__role">Learning analytics researcher, M.S. student in Education Data Science at Stanford</p>
-    </div>
-    <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
-    </button>
-  </div>
+<div class="panels">
 
+<section class="panel" id="about" role="tabpanel" aria-labelledby="tab-about">
   {% include research-map.html %}
 
+  <div class="intro">
   <div class="intro__text">
     <p>I’m a first-year M.S. student in Education Data Science at Stanford University. Before Stanford, I received my BA in Education Studies from University College London with First Class Honours.</p>
     <p>My research focuses on learning analytics, multimodal learning analytics, AI in education and human–technology interaction, with a particular interest in how immersive technologies and AI-driven tools can enhance collaboration, motivation and equity in learning, and help teachers.</p>
@@ -38,9 +30,9 @@ redirect_from:
     {% if author.researchgate %}<li><a href="{{ author.researchgate }}">ResearchGate</a></li>{% endif %}
     {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
   </ul>
-</header>
+  </div>
 
-<section class="section" id="news">
+<div class="section" id="news">
   <h2 class="section__label">News</h2>
   <div class="section__body">
     <ul class="news">
@@ -53,18 +45,11 @@ redirect_from:
       <li><time>2024.12</time><span>Poster on an outreach model for student VR creation accepted at JCDL 2024 (<a href="https://doi.org/10.1145/3677389.3702606">DOI</a>).</span></li>
     </ul>
   </div>
+</div>
 </section>
 
-<section class="section" id="publications">
-  <h2 class="section__label">Publications</h2>
-  <div class="section__body">
-    {% include publications.html %}
-  </div>
-</section>
-
-<section class="section" id="research" markdown="1">
-<h2 class="section__label">Research</h2>
-<div class="section__body" markdown="1">
+<section class="panel" id="research" role="tabpanel" aria-labelledby="tab-research" markdown="1">
+<div class="panel__body" markdown="1">
 
 <ul class="entries">
   <li class="entry">
@@ -205,14 +190,17 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
 </div>
 </section>
 
-<section class="section" id="projects">
-  <h2 class="section__label">Projects</h2>
-  <div class="section__body">
-    {% include projects.html %}
-  </div>
+<section class="panel" id="publications" role="tabpanel" aria-labelledby="tab-publications">
+  {% include publications.html %}
 </section>
 
-<section class="section" id="education">
+<section class="panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+  <p class="panel__intro">Small tools and side projects I build outside my research.</p>
+  {% include projects.html %}
+</section>
+
+<section class="panel" id="background" role="tabpanel" aria-labelledby="tab-background">
+<div class="section" id="education">
   <h2 class="section__label">Education</h2>
   <div class="section__body">
     <ul class="entries">
@@ -228,9 +216,9 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
       </li>
     </ul>
   </div>
-</section>
+</div>
 
-<section class="section" id="honors">
+<div class="section" id="honors">
   <h2 class="section__label">Honors</h2>
   <div class="section__body">
     <ul class="entries">
@@ -243,9 +231,9 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
       </li>
     </ul>
   </div>
-</section>
+</div>
 
-<section class="section" id="skills">
+<div class="section" id="skills">
   <h2 class="section__label">Skills</h2>
   <div class="section__body">
     <dl class="kv">
@@ -256,4 +244,7 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
       <div><dt>Interests</dt><dd>Soccer, basketball, travel in Western Europe, Western European history</dd></div>
     </dl>
   </div>
+</div>
 </section>
+
+</div>

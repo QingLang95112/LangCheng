@@ -7,7 +7,7 @@
 > | 论文 Publications | `_data/publications.yml` |
 > | 首页研究主题网络图 | `_data/research_map.yml`（新增项目时加一行主题即可，连线自动计算） |
 > | About / News / Research / Education / Honors / Skills 文字 | `_pages/about.md` |
-> | 左侧目录（宽屏显示） | `_data/navigation.yml` |
+> | 顶部标签页（About / Research / ...） | `_data/navigation.yml`（url 对应 `_pages/about.md` 里各个 panel 的 id） |
 > | 样式（字体、颜色、间距） | `assets/css/site.scss`（颜色在文件顶部 `:root` 里） |
 > | 交互（暗色模式、目录高亮） | `assets/js/custom.js` |
 > | 页面骨架 | `_layouts/default.html` |

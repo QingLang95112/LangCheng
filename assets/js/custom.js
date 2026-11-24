@@ -1,4 +1,4 @@
-/* Theme toggle + section index highlight. No dependencies. */
+/* Theme toggle + tabs. No dependencies. */
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -18,33 +18,83 @@
     });
   }
 
-  /* Highlight the section currently in view in the side index */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
-  var sections = links
-    .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
-    .filter(Boolean);
-  if (!sections.length) return;
+  /* Tabs: each panel is a "page"; the URL hash keeps it linkable */
+  var wrap = document.querySelector('.panels');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs__tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  if (!wrap || !panels.length) return;
 
-  var ticking = false;
-  function update() {
-    ticking = false;
-    var y = window.pageYOffset + window.innerHeight * 0.3;
-    var current = sections[0].id;
-    sections.forEach(function (s) {
-      if (s.getBoundingClientRect().top + window.pageYOffset <= y) current = s.id;
-    });
-    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
-      current = sections[sections.length - 1].id;
-    }
-    links.forEach(function (a) {
-      a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
-    });
+  function panelFor(hash) {
+    var id = (hash || '').replace(/^#/, '');
+    if (!id) return panels[0];
+    var el = document.getElementById(decodeURIComponent(id));
+    if (!el) return panels[0];
+    return el.classList.contains('panel') ? el : (el.closest('.panel') || panels[0]);
   }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+
+  function show(panel, opts) {
+    opts = opts || {};
+    panels.forEach(function (p) {
+      var on = p === panel;
+      p.classList.toggle('is-active', on);
+      p.hidden = !on;
+    });
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('aria-controls') === panel.id;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && t.scrollIntoView && opts.reveal) t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+    document.title = (panel.id === panels[0].id ? '' : tabLabel(panel.id) + ' | ') + baseTitle;
+  }
+
+  var baseTitle = document.title.replace(/^.*\| /, '');
+  function tabLabel(id) {
+    var t = tabs.filter(function (x) { return x.getAttribute('aria-controls') === id; })[0];
+    return t ? t.textContent.trim() : id;
+  }
+
+  function go(hash) {
+    var panel = panelFor(hash);
+    show(panel, { reveal: true });
+    var target = document.getElementById((hash || '').replace(/^#/, ''));
+    if (target && target !== panel) {
+      target.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var hash = a.getAttribute('href');
+    if (hash.length < 2 || !document.getElementById(hash.slice(1))) return;
+    e.preventDefault();
+    if (location.hash !== hash && history.pushState) history.pushState(null, '', hash);
+    go(hash);
+  });
+
+  window.addEventListener('popstate', function () { go(location.hash); });
+  window.addEventListener('hashchange', function () { go(location.hash); });
+
+  /* Arrow keys move between tabs (WAI-ARIA tabs pattern) */
+  tabs.forEach(function (t, i) {
+    t.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); next.focus(); next.click(); }
+    });
+  });
+
+  show(panelFor(location.hash));
+  wrap.classList.add('is-ready');
+  var deep = location.hash && document.getElementById(location.hash.slice(1));
+  if (deep && !deep.classList.contains('panel')) deep.scrollIntoView();
 })();
 
 /* Research map: draws an ENA-style network from _data/research_map.yml */

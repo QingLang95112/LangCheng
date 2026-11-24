@@ -1,18 +1,12 @@
-# Section index shown on the left on wide screens
+# Tabs across the top of the site. url must match a panel id in _pages/about.md
 main:
   - title: "About"
     url: "#about"
-  - title: "News"
-    url: "#news"
-  - title: "Publications"
-    url: "#publications"
   - title: "Research"
     url: "#research"
+  - title: "Publications"
+    url: "#publications"
   - title: "Projects"
     url: "#projects"
-  - title: "Education"
-    url: "#education"
-  - title: "Honors"
-    url: "#honors"
-  - title: "Skills"
-    url: "#skills"
+  - title: "Background"
+    url: "#background"
