@@ -1,27 +1,27 @@
-# Research map —— 首页的研究主题网络图（Epistemic Network 风格）
-# nodes: 主题节点。x / y 是在图中的位置（x: -300~300，y: -140~140，0,0 是中心）
+# Skills map —— 首页黑板上的技能网络图
+# nodes: 技能节点。x / y 是在图中的位置（x: -300~300，y: -140~140，0,0 是中心）
 #        side: 标签显示在节点的哪一侧（left / right / above / below）
-# projects: 每个研究项目涉及的主题。两个主题出现在同一个项目里就会连一条线，
-#           共享的项目越多线越粗。新增项目时在这里加一条即可。
+# projects: 每个项目用到的技能。两个技能出现在同一个项目里就会连一条线，
+#           共享的项目越多线越粗。做了新项目就在这里加一行。
 
 nodes:
-  - { id: la,     label: "Learning analytics", x: 10,   y: -5,   side: below }
-  - { id: llm,    label: "LLMs",               x: -95,  y: -110, side: left }
-  - { id: ena,    label: "Epistemic network analysis", x: 15, y: -112, side: right }
-  - { id: nlp,    label: "NLP & topic models", x: -110, y: 35,   side: left }
-  - { id: qual,   label: "Qualitative coding", x: -215, y: -55,  side: above }
-  - { id: collab, label: "Collaboration",      x: 95,   y: -60,  side: right }
-  - { id: vr,     label: "VR / AR",            x: 150,  y: 55,   side: right }
-  - { id: logs,   label: "Behaviour logs",     x: 225,  y: 118,  side: left }
-  - { id: stats,  label: "Statistics",         x: 230,  y: -20,  side: right }
-  - { id: teach,  label: "Teachers",           x: -30,  y: 118,  side: right }
-  - { id: policy, label: "Policy & equity",    x: -245, y: 95,   side: right }
+  - { id: llm,    label: "LLMs",                 x: -60,  y: -112, side: above }
+  - { id: eval,   label: "Model evaluation",     x: 75,   y: -95,  side: right }
+  - { id: nlp,    label: "NLP & topic models",   x: -10,  y: -5,   side: below }
+  - { id: qual,   label: "Qualitative coding",   x: -205, y: -60,  side: above }
+  - { id: survey, label: "Surveys & interviews", x: -170, y: 92,   side: below }
+  - { id: ena,    label: "Network analysis",     x: -150, y: 15,   side: left }
+  - { id: stats,  label: "Statistics",           x: 165,  y: -10,  side: right }
+  - { id: logs,   label: "Log analytics",        x: 120,  y: 85,   side: below }
+  - { id: viz,    label: "Data visualization",   x: -15,  y: 112,  side: below }
+  - { id: vr,     label: "VR / AR studies",      x: 250,  y: 55,   side: below }
+  - { id: clus,   label: "Clustering",           x: 265,  y: -60,  side: right }
 
 projects:
-  - { title: "LLM annotation pipeline",            themes: [llm, qual, collab, la] }
-  - { title: "Automating ENA with LLMs (ICALT 2026)", themes: [llm, ena, qual, la] }
-  - { title: "VR/AR learning analytics in secondary schools", themes: [vr, collab, nlp, stats, la, logs] }
-  - { title: "VR learning experience in a primary school",    themes: [vr, logs, stats] }
-  - { title: "ENA & topic modeling",               themes: [ena, nlp, teach, la] }
-  - { title: "Behavioural sequence analysis",      themes: [logs, stats, la] }
-  - { title: "Smartphone Free Childhoods",         themes: [policy, qual, nlp] }
+  - { title: "LLM annotation pipeline",                      themes: [llm, nlp, qual, eval] }
+  - { title: "Automating ENA with LLMs (ICALT 2026)",        themes: [llm, ena, qual] }
+  - { title: "VR/AR learning analytics in secondary schools", themes: [vr, logs, stats, nlp, survey, eval, viz] }
+  - { title: "VR learning experience in a primary school",   themes: [vr, logs, stats, survey, viz] }
+  - { title: "ENA & topic modeling",                         themes: [ena, nlp, viz] }
+  - { title: "Behavioural sequence analysis",                themes: [logs, stats, clus] }
+  - { title: "Smartphone Free Childhoods",                   themes: [qual, survey, viz] }

@@ -328,6 +328,62 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   }
 }
 
+/* ---------- About: actions + capabilities ---------- */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0 1.15rem;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &:hover { background: var(--text); color: var(--bg); }
+
+  &--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    &:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
+  }
+}
+
+.caps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  margin: 0 0 3.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.cap {
+  &__title {
+    margin-bottom: 0.6rem;
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+  p { color: var(--muted); }
+  &__tools { margin: 0; color: var(--text); font-size: 0.875rem; }
+}
+
+.block-title--small { margin-top: 2rem; font-size: 1.25rem; }
+
 /* ---------- About: chalkboard research map ---------- */
 
 .board {

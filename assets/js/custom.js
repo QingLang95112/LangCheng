@@ -155,7 +155,7 @@
   data.nodes.forEach(function (n, i) {
     var info = nodes[n.id];
     var g = el('g', { 'class': 'map__node', transform: 'translate(' + n.x + ' ' + n.y + ')', tabindex: '0', role: 'button',
-      'aria-label': n.label + ', appears in ' + info.count + ' of ' + total + ' projects' });
+      'aria-label': n.label + ', used in ' + info.count + ' of ' + total + ' projects' });
     g.style.setProperty('--i', i);
     g.dataset.id = n.id;
     g.appendChild(el('circle', { r: (2.5 + info.count * 1.4).toFixed(1), 'class': 'map__dot' }));
@@ -194,7 +194,7 @@
       var head = document.createElement('strong');
       head.textContent = info.n.label;
       var sub = document.createElement('span');
-      sub.textContent = ' appears in ' + info.count + ' of ' + total + ' projects:';
+      sub.textContent = ', used in ' + info.count + ' of ' + total + ' projects:';
       var ul = document.createElement('ul');
       info.projects.forEach(function (t) {
         var li = document.createElement('li');

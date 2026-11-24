@@ -17,23 +17,43 @@ redirect_from:
     <img class="hero__photo" src="{{ author.avatar }}" alt="Portrait of {{ author.name }}">
     <div class="hero__main">
       <h1 class="hero__name">{{ author.name }}</h1>
-      <p class="hero__lead">I study how learning analytics and AI can make collaborative learning more visible, and more useful to the teachers running it.</p>
+      <p class="hero__lead">I turn messy human data, from classroom conversations to interaction logs and surveys, into evidence a team can act on, using statistics, NLP and large language models.</p>
       <div class="hero__text">
-        <p>I’m a first-year M.S. student in Education Data Science at Stanford. Before that I did a BA in Education Studies at University College London, graduating with First Class Honours.</p>
-        <p>From 2023 to 2026 I was a research assistant in Dr. Xiao Hu’s CCMIR Lab at The University of Hong Kong, working on VR/AR learning analytics, Epistemic Network Analysis, and large language models for qualitative coding. At UCL, as an EPSURF fellow with Professor Jessica Ringrose, I studied adolescent mobile-phone policies through multimodal discourse analysis.</p>
+        <p>I’m an M.S. student in Education Data Science at Stanford, with a First Class BA from University College London. From 2023 to 2026 I was a research assistant at The University of Hong Kong, building the data side of VR/AR learning studies and automating qualitative coding with LLMs. I’m interested in data science, AI and user research roles, especially where people learn or collaborate.</p>
       </div>
+      <p class="hero__actions">
+        {% if author.email %}<a class="btn btn--primary" href="mailto:{{ author.email }}" target="_self">Email me</a>{% endif %}
+        <a class="btn" href="files/Lang_Cheng_Resume.pdf">Download résumé (PDF)</a>
+      </p>
     </div>
-    <aside class="hero__side" aria-label="Contact and profiles">
-      <p class="hero__where">Stanford, California</p>
+    <aside class="hero__side" aria-label="Profiles">
+      <p class="hero__where">Based in Stanford, California</p>
       <ul class="hero__links">
-        {% if author.email %}<li><a href="mailto:{{ author.email }}" target="_self">Email</a></li>{% endif %}
-        {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}">Google Scholar</a></li>{% endif %}
         {% if author.linkedin %}<li><a href="{{ author.linkedin }}">LinkedIn</a></li>{% endif %}
+        {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
+        {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}">Google Scholar</a></li>{% endif %}
         {% if author.orcid %}<li><a href="{{ author.orcid }}">ORCID</a></li>{% endif %}
         {% if author.researchgate %}<li><a href="{{ author.researchgate }}">ResearchGate</a></li>{% endif %}
-        {% if author.github %}<li><a href="https://github.com/{{ author.github }}">GitHub</a></li>{% endif %}
       </ul>
     </aside>
+  </div>
+
+  <div class="caps">
+    <div class="cap">
+      <h2 class="cap__title">Data science</h2>
+      <p>Cleaned and analysed 69,000+ multimodal interaction logs with Python and pandas, ran non-parametric, Bayesian and paired-samples tests, and clustered the behaviour sequences of 165 students in R.</p>
+      <p class="cap__tools">Python, R, SQL, pandas, scikit-learn, SPSS, JASP, TraMineR</p>
+    </div>
+    <div class="cap">
+      <h2 class="cap__title">NLP and LLMs</h2>
+      <p>Built a three-model LLM voting pipeline that coded 390 student discussion posts, reaching κ = 0.621 against human labels. Benchmarked VADER, RoBERTa and BERT sentiment models and built LDA topic models.</p>
+      <p class="cap__tools">Hugging Face, NLTK, prompt engineering, LLM evaluation</p>
+    </div>
+    <div class="cap">
+      <h2 class="cap__title">User and learning research</h2>
+      <p>Designed and ran studies in schools with surveys, interviews and pre/post tests, and coded students’ drawings and interviews with multimodal qualitative methods to compare groups.</p>
+      <p class="cap__tools">Survey design, interviews, thematic coding, NVivo, Seaborn</p>
+    </div>
   </div>
 
   {% include research-map.html %}
@@ -52,13 +72,15 @@ redirect_from:
       </ul>
     </div>
     <aside class="about-grid__side">
-      <h2 class="block-title">Outside research</h2>
+      <h2 class="block-title">Outside work</h2>
       <p>I play football, baseball and basketball. I also love travelling in Western Europe and am interested in Western European history.</p>
+      <h2 class="block-title block-title--small">Languages</h2>
+      <p>Mandarin Chinese (native), English (fluent)</p>
     </aside>
   </div>
 </section>
 
-<section class="panel panel--research" id="research" role="tabpanel" aria-labelledby="tab-research" markdown="1">
+<section class="panel panel--research" id="experience" role="tabpanel" aria-labelledby="tab-experience" markdown="1">
 <aside class="positions">
   <h2 class="block-title">Positions</h2>
   <ul class="entries">
@@ -80,7 +102,7 @@ redirect_from:
 
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Three-model voting pipeline for qualitative coding</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Automated the coding of 390 posts, κ = 0.621 against human labels</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Used multiple large language models to automate the coding of student discussions, replacing manual annotation for learning analytics.</p>
@@ -96,7 +118,7 @@ I built an automated LLM annotation pipeline in which three models classify each
 </details>
 
 <details class="fold" markdown="1">
-<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Teaching implementation and data analysis, presented at CSCL 2025</p></summary>
+<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/568cbf37-1451-4e04-b515-00d0b80bcf8a" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">69,000+ interaction logs, NLP and survey statistics; CSCL 2025 poster</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.</p>
@@ -124,7 +146,7 @@ On the analysis side, I combined robust survey statistics with a full NLP pipeli
 </details>
 
 <details class="fold" markdown="1">
-<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/9b0aa347-f89c-42e9-a7b9-0233515e0334" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Activity lead and data analyst, presented at JCDL 2024</p></summary>
+<summary><img class="fold__thumb" src="https://github.com/user-attachments/assets/9b0aa347-f89c-42e9-a7b9-0233515e0334" alt="" loading="lazy"><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Pre/post tests showed a significant gain in digital literacy; JCDL 2024 poster</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.</p>
@@ -149,7 +171,7 @@ I helped organize a VR experience day at a primary school that combined hands-on
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Epistemic Network Analysis &amp; topic modeling</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Lead on the topic modeling and ENA pipeline</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Epistemic Network Analysis &amp; topic modeling</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Turned free-text teacher feedback into comparable discourse networks</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Turned free-text teacher feedback into topic-coded inputs for Epistemic Network Analysis to compare discourse networks across instructional phases.</p>
@@ -168,7 +190,7 @@ I transform a corpus of teacher feedback messages from a learning analytics tool
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Behavioural sequence analysis</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Sequence mining and clustering in R</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Behavioural sequence analysis</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Clustered 165 students by behaviour sequence (OM distance, PAM) in R</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Grouped students by how their learning behaviours unfold over time.</p>
@@ -179,7 +201,7 @@ I analysed behavioural sequence data from 165 students using Optimal Matching (O
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Smartphone Free Childhoods</h3><span class="fold__org">UCL</span><span class="fold__sign"></span></div><p class="fold__meta">Literature synthesis and multimodal qualitative analysis</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Smartphone Free Childhoods</h3><span class="fold__org">UCL</span><span class="fold__sign"></span></div><p class="fold__meta">Multimodal coding of student drawings and parent interviews for a policy study</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Organized cross-disciplinary discussion and used multimodal coding to examine children’s experiences and attitudes toward phone policies across social contexts.</p>
@@ -202,12 +224,12 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
 </div>
 </section>
 
-<section class="panel panel--pubs" id="publications" role="tabpanel" aria-labelledby="tab-publications">
-  {% include publications.html %}
-</section>
-
 <section class="panel panel--projects" id="projects" role="tabpanel" aria-labelledby="tab-projects">
   {% include projects.html %}
+</section>
+
+<section class="panel panel--pubs" id="publications" role="tabpanel" aria-labelledby="tab-publications">
+  {% include publications.html %}
 </section>
 
 <section class="panel panel--background" id="background" role="tabpanel" aria-labelledby="tab-background">
@@ -245,12 +267,12 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
   </div>
 
   <div class="col" id="skills">
-    <h2 class="block-title">Skills</h2>
+    <h2 class="block-title">Skills and training</h2>
     <dl class="kv">
       <div><dt>Data science</dt><dd>Python, R, SQL, SPSS, JASP, pandas, scikit-learn, NLTK, Hugging Face, TraMineR, NVivo, Seaborn</dd></div>
       <div><dt>AI</dt><dd>Prompt engineering, LLM evaluation</dd></div>
-      <div><dt>Training</dt><dd>Mathematics for Machine Learning, UCL Summer School (2025); Mathematics for ML and Data Science Specialization, DeepLearning.AI (2025); Computational Social Science, X Academy Summer School</dd></div>
-      <div><dt>Languages</dt><dd>Mandarin Chinese (native), English (fluent)</dd></div>
+      <div><dt>Certificates</dt><dd>Mathematics for Machine Learning, UCL Summer School (2025); Mathematics for ML and Data Science Specialization, DeepLearning.AI (2025)</dd></div>
+      <div><dt>Summer school</dt><dd>Computational Social Science, X Academy</dd></div>
     </dl>
   </div>
 </section>
