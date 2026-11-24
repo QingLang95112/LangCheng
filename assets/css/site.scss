@@ -4,26 +4,29 @@
    neutral colors. Change the tokens in :root to retheme the site. */
 
 :root {
-  --bg: #fbfbfa;
-  --text: #161616;
-  --muted: #6f6f6c;
-  --faint: #a3a3a0;
-  --line: #e8e8e5;
-  --hover: #f1f1ee;
-  --underline: #cfcfcb;
+  /* paper, ink, graphite, rule + one accent (Stanford cardinal) */
+  --bg: #fafaf7;
+  --text: #1d1d1f;
+  --muted: #6a6a6e;
+  --faint: #9c9ca0;
+  --line: #e3e3de;
+  --hover: #f0f0ec;
+  --underline: #c9c9c4;
+  --accent: #8c1515;
   --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color-scheme: light;
 }
 
 @mixin dark {
-  --bg: #111110;
-  --text: #ececea;
-  --muted: #a0a09c;
-  --faint: #6b6b68;
-  --line: #262624;
-  --hover: #1b1b1a;
-  --underline: #4a4a47;
+  --bg: #1a1c20;
+  --text: #e9e8e4;
+  --muted: #a3a29e;
+  --faint: #74747a;
+  --line: #2e3036;
+  --hover: #23252a;
+  --underline: #55565c;
+  --accent: #e0868a;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { @include dark; } }
@@ -41,10 +44,12 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.65;
-  font-feature-settings: "cv11", "ss01";
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+
+  @media (max-width: 600px) { font-size: 17px; }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -62,7 +67,8 @@ a {
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
-a:hover { text-decoration-color: currentColor; }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 p { margin: 0 0 1em; }
 strong { font-weight: 600; }
@@ -90,11 +96,15 @@ em { font-style: italic; }
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+
+    @media (max-width: 600px) { align-items: flex-start; gap: 0.85rem; }
   }
 
   &__avatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
+
+    @media (max-width: 600px) { width: 48px; height: 48px; margin-top: 0.3rem; }
     border-radius: 50%;
     object-fit: cover;
     flex: 0 0 auto;
@@ -104,13 +114,16 @@ em { font-style: italic; }
   &__name {
     margin: 0;
     font-family: var(--serif);
-    font-size: 1.75rem;
+    font-size: 2.6rem;
     font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 72;
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+
+    @media (max-width: 600px) { font-size: 1.9rem; }
   }
 
-  &__role { margin: 0.15rem 0 0; color: var(--muted); }
+  &__role { margin: 0.4rem 0 0; color: var(--muted); font-family: var(--sans); font-size: 0.83rem; letter-spacing: 0.005em; }
 
   &__text p { color: var(--text); }
 
@@ -122,10 +135,11 @@ em { font-style: italic; }
     padding: 0;
     list-style: none;
     color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.83rem;
 
     a { text-decoration: none; }
-    a:hover { color: var(--text); }
-    a::after { content: " \2197"; color: var(--faint); font-size: 0.85em; }
+    a:hover { color: var(--accent); }
   }
 }
 
@@ -152,7 +166,7 @@ em { font-style: italic; }
 
 .section {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 7rem 1fr;
   column-gap: 2rem;
   margin-bottom: 4rem;
 
@@ -166,9 +180,9 @@ em { font-style: italic; }
     padding-top: 0.1rem;
     color: var(--muted);
     font-family: var(--sans);
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.9;
 
     @media (max-width: 600px) { margin-bottom: 1rem; }
   }
@@ -208,8 +222,10 @@ em { font-style: italic; }
   &__date {
     flex: 0 0 auto;
     color: var(--faint);
-    font-size: 0.875rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
+    text-align: right;
   }
 
   &__meta { margin: 0.1rem 0 0; color: var(--muted); }
@@ -220,12 +236,9 @@ em { font-style: italic; }
     flex-wrap: wrap;
     gap: 0.9rem;
     margin-top: 0.35rem;
-    font-size: 0.875rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
     color: var(--muted);
-
-    a { text-decoration: none; }
-    a:hover { color: var(--text); }
-    a::after { content: " \2197"; color: var(--faint); }
   }
 }
 
@@ -237,7 +250,7 @@ em { font-style: italic; }
 
   li {
     display: grid;
-    grid-template-columns: 4.25rem 1fr;
+    grid-template-columns: 3.75rem 1fr;
     gap: 1rem;
     padding: 0.15rem 0;
   }
@@ -246,7 +259,8 @@ em { font-style: italic; }
 
   time {
     color: var(--faint);
-    font-size: 0.875rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
     padding-top: 0.08rem;
   }
@@ -311,6 +325,13 @@ em { font-style: italic; }
 
   &__meta { margin: 0.1rem 0 0; color: var(--muted); }
 
+  &__org {
+    flex: 0 0 auto;
+    color: var(--faint);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+  }
+
   &__content {
     padding: 0.25rem 0 1.5rem;
     animation: fold-in 0.25s ease;
@@ -322,21 +343,21 @@ em { font-style: italic; }
     h4 {
       margin: 1.25rem 0 0.5rem;
       color: var(--muted);
-      font-size: 0.875rem;
-      font-weight: 400;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
     }
   }
 
   &__lead {
-    font-family: var(--serif);
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.45;
   }
 
   figure { margin: 1.25rem 0; }
   figure img { display: block; border-radius: 4px; border: 1px solid var(--line); }
-  figcaption { margin-top: 0.5rem; color: var(--faint); font-size: 0.8125rem; }
+  figcaption { margin-top: 0.5rem; color: var(--faint); font-family: var(--sans); font-size: 0.75rem; }
 }
 
 @keyframes fold-in {
@@ -360,7 +381,7 @@ em { font-style: italic; }
 
   &__main { flex: 1 1 auto; min-width: 0; }
 
-  &__tags { margin: 0.1rem 0 0; color: var(--faint); font-size: 0.875rem; }
+  &__tags { margin: 0.1rem 0 0; color: var(--faint); font-family: var(--sans); font-size: 0.78rem; }
 }
 
 /* Skills: label + plain list */
@@ -378,7 +399,7 @@ em { font-style: italic; }
 
   > div + div { margin-top: 0.6rem; }
 
-  dt { color: var(--muted); }
+  dt { color: var(--muted); font-family: var(--sans); font-size: 0.8rem; padding-top: 0.2rem; }
   dd { margin: 0; }
 }
 
@@ -392,7 +413,8 @@ em { font-style: italic; }
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   color: var(--faint);
-  font-size: 0.8125rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
 }
 
 /* ---------- Floating section index (wide screens only) ---------- */
@@ -402,7 +424,8 @@ em { font-style: italic; }
   top: 6.1rem;
   left: max(1.5rem, calc(50% - 380px - 11rem));
   display: none;
-  font-size: 0.8125rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
 
   @media (min-width: 1240px) { display: block; }
 
@@ -426,22 +449,9 @@ em { font-style: italic; }
 
     &:hover { color: var(--muted); }
     &.is-active { color: var(--text); }
+    &.is-active::before { background: var(--accent); }
     &.is-active::before { width: 24px; }
   }
-}
-
-/* ---------- Load-in (subtle, once) ---------- */
-
-.js .wrap > * {
-  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-@for $i from 1 through 12 {
-  .js .wrap > *:nth-child(#{$i}) { animation-delay: #{($i - 1) * 60}ms; }
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -452,6 +462,83 @@ em { font-style: italic; }
 .section__sub {
   margin: 2.25rem 0 0.5rem;
   color: var(--muted);
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ---------- Research map (the one bold element) ---------- */
+
+.map {
+  margin: 0.5rem 0 2.5rem;
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    font-family: var(--sans);
+  }
+
+  &__axes line { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+
+  &__edge {
+    stroke: var(--text);
+    stroke-linecap: round;
+    opacity: 0.2;
+    transition: opacity 0.2s ease, stroke 0.2s ease;
+  }
+  &__edge--w2 { opacity: 0.34; }
+  &__edge--w3 { opacity: 0.46; }
+
+  &__node { cursor: pointer; outline: none; }
+  &__dot {
+    fill: var(--bg);
+    stroke: var(--text);
+    stroke-width: 1.25;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+  &__label {
+    fill: var(--muted);
+    font-size: 11.5px;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    transition: fill 0.2s ease, opacity 0.2s ease;
+  }
+  &__node:hover &__label { fill: var(--text); }
+  &__node:focus-visible &__dot { stroke: var(--accent); stroke-width: 2.5; }
+
+  &.is-tracing &__edge { opacity: 0.06; }
+  &.is-tracing &__edge.is-on { opacity: 0.9; stroke: var(--accent); }
+  &.is-tracing &__label { opacity: 0.35; }
+  &.is-tracing &__node.is-on &__label,
+  &.is-tracing &__node.is-linked &__label { opacity: 1; fill: var(--text); }
+  &.is-tracing &__node.is-on &__dot { fill: var(--accent); stroke: var(--accent); }
+  &.is-tracing &__node.is-linked &__dot { stroke: var(--accent); }
+
+  &__caption {
+    margin-top: 0.75rem;
+    max-width: 34rem;
+    min-height: 3em;
+    color: var(--faint);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  &__detail { color: var(--muted); }
+
+  /* the single load-in moment: edges draw, then nodes settle */
+  &.is-drawing &__edge { stroke-dasharray: var(--len) var(--len); stroke-dashoffset: var(--len); }
+  &.is-drawing &__node { opacity: 0; }
+  &.is-drawn &__edge {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.9s cubic-bezier(0.3, 0.6, 0.2, 1) calc(var(--i) * 22ms), opacity 0.2s ease, stroke 0.2s ease;
+  }
+  &.is-drawn &__node { opacity: 1; transition: opacity 0.5s ease calc(250ms + var(--i) * 40ms); }
+
+  @media (max-width: 600px) {
+    &__label { font-size: 16px; stroke-width: 5px; }
+  }
 }

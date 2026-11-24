@@ -14,18 +14,20 @@ redirect_from:
     <img class="intro__avatar" src="{{ author.avatar }}" alt="{{ author.name }}">
     <div>
       <h1 class="intro__name">{{ author.name }}</h1>
-      <p class="intro__role">M.S. Education Data Science, Stanford University</p>
+      <p class="intro__role">Learning analytics researcher, M.S. student in Education Data Science at Stanford</p>
     </div>
     <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
     </button>
   </div>
 
+  {% include research-map.html %}
+
   <div class="intro__text">
-    <p>I’m an M.S. student in Education Data Science at Stanford University. I received my BA in Education Studies from University College London with First Class Honours.</p>
+    <p>I’m a first-year M.S. student in Education Data Science at Stanford University. Before Stanford, I received my BA in Education Studies from University College London with First Class Honours.</p>
     <p>My research focuses on learning analytics, multimodal learning analytics, AI in education and human–technology interaction, with a particular interest in how immersive technologies and AI-driven tools can enhance collaboration, motivation and equity in learning, and help teachers.</p>
     <p>At The University of Hong Kong, I work with Dr. Xiao Hu on VR/AR-based learning analytics, Epistemic Network Analysis, and using large language models to automate qualitative coding. At UCL, as an EPSURF fellow with Professor Jessica Ringrose, I studied adolescent mobile-phone policies through multimodal discourse analysis.</p>
-    <p class="muted">Outside academia I play football, baseball and basketball.</p>
+    <p>Outside academia I play football, baseball and basketball.</p>
   </div>
 
   <ul class="intro__links">
@@ -67,11 +69,11 @@ redirect_from:
 <ul class="entries">
   <li class="entry">
     <div class="entry__row"><h3 class="entry__title">CCMIR Lab, The University of Hong Kong</h3><span class="entry__date">2023.12 – 2026.10</span></div>
-    <p class="entry__meta">Research Assistant · Supervisor: Dr. Xiao Hu</p>
+    <p class="entry__meta">Research assistant, supervised by Dr. Xiao Hu</p>
   </li>
   <li class="entry">
     <div class="entry__row"><h3 class="entry__title">University College London</h3><span class="entry__date">2025.05 – 2025.12</span></div>
-    <p class="entry__meta">Undergraduate Research Fellow (EPSURF) · Supervisor: Professor Jessica Ringrose</p>
+    <p class="entry__meta">Undergraduate research fellow (EPSURF), supervised by Professor Jessica Ringrose</p>
   </li>
 </ul>
 
@@ -80,7 +82,7 @@ redirect_from:
 <div class="folds" markdown="1">
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__sign"></span></div><p class="fold__meta">HKU · LLM-based qualitative coding</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">LLM annotation pipeline for student discussions</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Three-model voting pipeline for qualitative coding</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Used multiple large language models to automate the coding of student discussions, replacing manual annotation for learning analytics.</p>
@@ -96,7 +98,7 @@ I built an automated LLM annotation pipeline in which three models classify each
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__sign"></span></div><p class="fold__meta">HKU · Teaching implementation &amp; data analysis · CSCL 2025</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">VR/AR learning analytics in secondary schools</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Teaching implementation and data analysis, presented at CSCL 2025</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Facilitated student VR creation and combined interaction logs with reflective responses to investigate collaborative learning processes.</p>
@@ -124,7 +126,7 @@ On the analysis side, I combined robust survey statistics with a full NLP pipeli
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__sign"></span></div><p class="fold__meta">HKU · Activity lead &amp; data analyst · JCDL 2024</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">VR learning experience in a primary school</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Activity lead and data analyst, presented at JCDL 2024</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Designed and ran an educational VR day combining student creation and immersive viewing to explore effects on digital literacy and environmental attitudes.</p>
@@ -149,7 +151,7 @@ I helped organize a VR experience day at a primary school that combined hands-on
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Epistemic Network Analysis &amp; topic modeling</h3><span class="fold__sign"></span></div><p class="fold__meta">HKU · Topic modeling &amp; ENA pipeline lead</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Epistemic Network Analysis &amp; topic modeling</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Lead on the topic modeling and ENA pipeline</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Turned free-text teacher feedback into topic-coded inputs for Epistemic Network Analysis to compare discourse networks across instructional phases.</p>
@@ -168,7 +170,7 @@ I transform a corpus of teacher feedback messages from a learning analytics tool
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Behavioural sequence analysis</h3><span class="fold__sign"></span></div><p class="fold__meta">HKU · Sequence mining &amp; clustering in R</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Behavioural sequence analysis</h3><span class="fold__org">HKU</span><span class="fold__sign"></span></div><p class="fold__meta">Sequence mining and clustering in R</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Grouped students by how their learning behaviours unfold over time.</p>
@@ -179,7 +181,7 @@ I analysed behavioural sequence data from 165 students using Optimal Matching (O
 </details>
 
 <details class="fold" markdown="1">
-<summary><div class="fold__head"><h3 class="fold__title">Smartphone Free Childhoods</h3><span class="fold__sign"></span></div><p class="fold__meta">UCL · Literature synthesis &amp; multimodal qualitative analysis</p></summary>
+<summary><div class="fold__head"><h3 class="fold__title">Smartphone Free Childhoods</h3><span class="fold__org">UCL</span><span class="fold__sign"></span></div><p class="fold__meta">Literature synthesis and multimodal qualitative analysis</p></summary>
 <div class="fold__content" markdown="1">
 
 <p class="fold__lead">Organized cross-disciplinary discussion and used multimodal coding to examine children’s experiences and attitudes toward phone policies across social contexts.</p>
@@ -216,12 +218,12 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
     <ul class="entries">
       <li class="entry">
         <div class="entry__row"><h3 class="entry__title">Stanford University</h3><span class="entry__date">2026 – 2028</span></div>
-        <p class="entry__meta">M.S., Education Data Science</p>
+        <p class="entry__meta">M.S. in Education Data Science</p>
         <p class="entry__meta">Statistical Methods, Data Processing, Collaborative Learning Analytics with NLP/LLMs, Machine Learning</p>
       </li>
       <li class="entry">
         <div class="entry__row"><h3 class="entry__title">University College London</h3><span class="entry__date">2023 – 2026</span></div>
-        <p class="entry__meta">BA (Hons), Education Studies · First Class Honours · GPA 3.89 (WES)</p>
+        <p class="entry__meta">BA (Hons) in Education Studies, First Class Honours, GPA 3.89 (WES)</p>
         <p class="entry__meta">Quantitative Analysis, Quantitative &amp; Qualitative Methods, Education Policy Analysis, Survey Instrument Design</p>
       </li>
     </ul>
@@ -249,7 +251,7 @@ As part of a team exploring adolescent phone-use policies, I supported organizat
     <dl class="kv">
       <div><dt>Data science</dt><dd>Python, R, SQL, SPSS, JASP, pandas, scikit-learn, NLTK, Hugging Face, TraMineR, NVivo, Seaborn</dd></div>
       <div><dt>AI</dt><dd>Prompt engineering, LLM evaluation</dd></div>
-      <div><dt>Training</dt><dd>Mathematics for Machine Learning, UCL Summer School (2025) · Mathematics for ML &amp; Data Science Specialization, DeepLearning.AI (2025) · Computational Social Science, X Academy Summer School</dd></div>
+      <div><dt>Training</dt><dd>Mathematics for Machine Learning, UCL Summer School (2025); Mathematics for ML and Data Science Specialization, DeepLearning.AI (2025); Computational Social Science, X Academy Summer School</dd></div>
       <div><dt>Languages</dt><dd>Mandarin Chinese (native), English (fluent)</dd></div>
       <div><dt>Interests</dt><dd>Soccer, basketball, travel in Western Europe, Western European history</dd></div>
     </dl>

@@ -3,10 +3,10 @@
   <li class="entry">
     <div class="entry__row">
       <h3 class="entry__title">{% if pub.links and pub.links.size > 0 %}<a href="{{ pub.links[0].url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
-      <span class="entry__date">{{ pub.venue }}</span>
+      <span class="entry__date">{{ pub.venue }}{% if pub.type %}<br>{{ pub.type }}{% endif %}</span>
     </div>
     <p class="entry__meta">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
-    {% if pub.venue_full %}<p class="entry__meta"><em>{{ pub.venue_full }}</em>{% if pub.type %} · {{ pub.type }}{% endif %}</p>{% endif %}
+    {% if pub.venue_full %}<p class="entry__meta"><em>{{ pub.venue_full }}</em></p>{% endif %}
     {% if pub.links and pub.links.size > 0 %}
     <div class="entry__links">{% for l in pub.links %}<a href="{{ l.url }}">{{ l.name }}</a>{% endfor %}</div>
     {% endif %}

@@ -46,3 +46,132 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+/* Research map: draws an ENA-style network from _data/research_map.yml */
+(function () {
+  'use strict';
+  var fig = document.getElementById('research-map');
+  var dataEl = document.getElementById('research-map-data');
+  if (!fig || !dataEl) return;
+
+  var data;
+  try { data = JSON.parse(dataEl.textContent); } catch (e) { return; }
+  var NS = 'http://www.w3.org/2000/svg';
+  var edgesG = fig.querySelector('.map__edges');
+  var nodesG = fig.querySelector('.map__nodes');
+  var defaultCap = fig.querySelector('.map__default');
+  var detailCap = fig.querySelector('.map__detail');
+  var total = data.projects.length;
+
+  var nodes = {};
+  data.nodes.forEach(function (n) { nodes[n.id] = { n: n, count: 0, projects: [] }; });
+
+  var pairs = {};
+  data.projects.forEach(function (p) {
+    var t = p.themes.filter(function (id) { return nodes[id]; });
+    t.forEach(function (id) { nodes[id].count++; nodes[id].projects.push(p.title); });
+    for (var i = 0; i < t.length; i++) {
+      for (var j = i + 1; j < t.length; j++) {
+        var key = [t[i], t[j]].sort().join('|');
+        pairs[key] = (pairs[key] || 0) + 1;
+      }
+    }
+  });
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  var edgeEls = [];
+  Object.keys(pairs).sort(function (a, b) { return pairs[a] - pairs[b]; }).forEach(function (key, i) {
+    var ids = key.split('|'), a = nodes[ids[0]].n, b = nodes[ids[1]].n, w = pairs[key];
+    var line = el('line', {
+      x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+      'stroke-width': (0.6 + (w - 1) * 1.6).toFixed(2),
+      'class': 'map__edge map__edge--w' + Math.min(w, 3)
+    });
+    var len = Math.hypot(b.x - a.x, b.y - a.y);
+    line.style.setProperty('--len', len.toFixed(1));
+    line.style.setProperty('--i', i);
+    line.dataset.a = ids[0];
+    line.dataset.b = ids[1];
+    edgesG.appendChild(line);
+    edgeEls.push(line);
+  });
+
+  var nodeEls = [];
+  data.nodes.forEach(function (n, i) {
+    var info = nodes[n.id];
+    var g = el('g', { 'class': 'map__node', transform: 'translate(' + n.x + ' ' + n.y + ')', tabindex: '0', role: 'button',
+      'aria-label': n.label + ', appears in ' + info.count + ' of ' + total + ' projects' });
+    g.style.setProperty('--i', i);
+    g.dataset.id = n.id;
+    g.appendChild(el('circle', { r: (2.5 + info.count * 1.4).toFixed(1), 'class': 'map__dot' }));
+    var r = 2.5 + info.count * 1.4;
+    var pos = {
+      right: { x: r + 6, y: 4, anchor: 'start' },
+      left: { x: -(r + 6), y: 4, anchor: 'end' },
+      below: { x: 0, y: r + 15, anchor: 'middle' },
+      above: { x: 0, y: -(r + 8), anchor: 'middle' }
+    }[n.side] || { x: r + 6, y: 4, anchor: 'start' };
+    var text = el('text', { x: pos.x, y: pos.y, 'text-anchor': pos.anchor, 'class': 'map__label' });
+    text.textContent = n.label;
+    g.appendChild(text);
+    nodesG.appendChild(g);
+    nodeEls.push(g);
+  });
+
+  var pinned = null;
+  function focusNode(id) {
+    fig.classList.toggle('is-tracing', !!id);
+    edgeEls.forEach(function (e) {
+      e.classList.toggle('is-on', !!id && (e.dataset.a === id || e.dataset.b === id));
+    });
+    var linked = {};
+    edgeEls.forEach(function (e) {
+      if (e.dataset.a === id) linked[e.dataset.b] = 1;
+      if (e.dataset.b === id) linked[e.dataset.a] = 1;
+    });
+    nodeEls.forEach(function (g) {
+      g.classList.toggle('is-on', g.dataset.id === id);
+      g.classList.toggle('is-linked', !!linked[g.dataset.id]);
+    });
+    if (id) {
+      var info = nodes[id];
+      detailCap.textContent = info.n.label + ' appears in ' + info.count + ' of ' + total + ' projects: ' + info.projects.join('; ') + '.';
+      detailCap.hidden = false;
+      defaultCap.hidden = true;
+    } else {
+      detailCap.hidden = true;
+      defaultCap.hidden = false;
+    }
+  }
+
+  nodeEls.forEach(function (g) {
+    var id = g.dataset.id;
+    g.addEventListener('mouseenter', function () { if (!pinned) focusNode(id); });
+    g.addEventListener('mouseleave', function () { if (!pinned) focusNode(null); });
+    g.addEventListener('focus', function () { focusNode(id); });
+    g.addEventListener('blur', function () { if (!pinned) focusNode(null); });
+    g.addEventListener('click', function (e) {
+      e.stopPropagation();
+      pinned = pinned === id ? null : id;
+      focusNode(pinned);
+    });
+    g.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new MouseEvent('click')); }
+      if (e.key === 'Escape') { pinned = null; focusNode(null); g.blur(); }
+    });
+  });
+  document.addEventListener('click', function () { if (pinned) { pinned = null; focusNode(null); } });
+
+  /* One orchestrated moment: the network draws itself once on load */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    fig.classList.add('is-drawing');
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { fig.classList.add('is-drawn'); });
+    });
+  }
+})();

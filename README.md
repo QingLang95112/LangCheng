@@ -5,6 +5,7 @@
 > |---|---|
 > | 个人开发的小项目（Projects） | `_data/projects.yml`（文件顶部有字段说明和示例），缩略图放 `images/projects/` |
 > | 论文 Publications | `_data/publications.yml` |
+> | 首页研究主题网络图 | `_data/research_map.yml`（新增项目时加一行主题即可，连线自动计算） |
 > | About / News / Research / Education / Honors / Skills 文字 | `_pages/about.md` |
 > | 左侧目录（宽屏显示） | `_data/navigation.yml` |
 > | 样式（字体、颜色、间距） | `assets/css/site.scss`（颜色在文件顶部 `:root` 里） |
