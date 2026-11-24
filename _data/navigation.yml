@@ -1,25 +1,18 @@
-# main links
+# Section index shown on the left on wide screens
 main:
   - title: "About"
-    url: "#about-me"
-
+    url: "#about"
   - title: "News"
     url: "#news"
-
   - title: "Publications"
     url: "#publications"
-
   - title: "Research"
     url: "#research"
-
   - title: "Projects"
     url: "#projects"
-
-  - title: "Honors"
-    url: "#honors-and-awards"
-
   - title: "Education"
     url: "#education"
-
+  - title: "Honors"
+    url: "#honors"
   - title: "Skills"
     url: "#skills"

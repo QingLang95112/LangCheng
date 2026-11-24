@@ -3,12 +3,13 @@
 >
 > | 想改什么 | 改哪个文件 |
 > |---|---|
-> | 个人开发的小项目（Projects 卡片） | `_data/projects.yml`（文件顶部有字段说明和示例），封面图放 `images/projects/` |
+> | 个人开发的小项目（Projects） | `_data/projects.yml`（文件顶部有字段说明和示例），缩略图放 `images/projects/` |
 > | 论文 Publications | `_data/publications.yml` |
-> | About / News / Research / Honors / Education 文字 | `_pages/about.md` |
-> | 顶部导航 | `_data/navigation.yml` |
-> | 主题色、样式 | `_sass/_custom.scss`（改 `--accent` 即可换主色） |
-> | 交互（暗色模式、筛选、滚动高亮） | `assets/js/custom.js` |
+> | About / News / Research / Education / Honors / Skills 文字 | `_pages/about.md` |
+> | 左侧目录（宽屏显示） | `_data/navigation.yml` |
+> | 样式（字体、颜色、间距） | `assets/css/site.scss`（颜色在文件顶部 `:root` 里） |
+> | 交互（暗色模式、目录高亮） | `assets/js/custom.js` |
+> | 页面骨架 | `_layouts/default.html` |
 
 <h1 align="center">
 AcadHomepage

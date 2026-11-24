@@ -1,36 +1,51 @@
 ---
 layout: compress
 ---
-
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
-    {% include head.html %}
-    {% include head/custom.html %}
+    <meta charset="utf-8">
+    {% include seo.html %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base target="_blank">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <script>
+      (function () {
+        document.documentElement.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
   </head>
-
   <body>
+    <nav class="toc" aria-label="Sections">
+      <ul>
+        {% for link in site.data.navigation.main %}
+        <li><a href="{{ link.url }}" target="_self">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
 
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
+    <main class="wrap">
+      {{ content }}
+      <footer class="footer">
+        <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
+        <span>Updated {{ site.time | date: "%B %Y" }}</span>
+      </footer>
+    </main>
 
-    <div id="main" role="main">
-      {% include sidebar.html %}
-    
-      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            {{ content }}
-          </section>
-        </div>
-        {% include footer.html %}
-      </article>
-    </div>
-
-    <button type="button" class="back-to-top" aria-label="Back to top" title="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
-
-    {% include scripts.html %}
-
+    <script src="assets/js/custom.js"></script>
+    {% if site.google_analytics_id and site.google_analytics_id != "" %}{% include analytics.html %}{% endif %}
   </body>
 </html>

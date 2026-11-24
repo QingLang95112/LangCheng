@@ -5,9 +5,8 @@
 #
 #  - title:        项目名称
 #    description:  一两句话介绍（建议 40–120 个英文单词以内）
-#    image:        封面图路径，例如 images/projects/my-app.png（推荐 16:9，可省略）
-#    icon:         没有封面图时显示的 emoji，例如 "🤖"（可省略）
-#    tags:         [Python, NLP, Web]   # 技术栈/分类标签，会自动生成筛选按钮
+#    image:        缩略图路径，例如 images/projects/my-app.png（推荐 4:3，可省略）
+#    tags:         [Python, NLP, Web]   # 技术栈
 #    status:       Live / WIP / Archived（可省略）
 #    year:         2025
 #    github:       https://github.com/QingLang95112/xxx
@@ -17,12 +16,11 @@
 #        url: https://...
 #
 #  把下面的示例取消注释（删除每行开头的 "# "）并改成你自己的内容即可。
-#  列表为空时，网页上会显示一个 "Coming soon" 的占位卡片。
+#  列表为空时，网页上会显示一句 "Side projects are on the way" 的提示。
 # ============================================================================
 
 # - title: "Example Project"
 #   description: "A short sentence about what this project does and why you built it."
-#   icon: "🧩"
 #   tags: [Python, Data Viz]
 #   status: WIP
 #   year: 2025
