@@ -2,10 +2,16 @@
 #   authors 里用 **Lang Cheng** 加粗自己的名字
 #   links 可以放 PDF / DOI / Poster / Code 等
 
+- title: "Automating Epistemic Network Analysis with Large Language Models: A Design-aware Learning Analytics Approach"
+  authors: "**Lang Cheng**, S. Ba, Xiao Hu, P. Ko, N. Law"
+  venue: "ICALT 2026"
+  venue_full: "26th IEEE International Conference on Advanced Learning Technologies"
+  type: First author
+
 - title: "Comparing Collaboration Patterns in Virtual Reality Content Co-Creation Activities Between High- and Low-Performing Secondary School Students"
   authors: "Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu"
   venue: "CSCL 2025"
-  venue_full: "International Conference on Computer-Supported Collaborative Learning"
+  venue_full: "18th International Conference on Computer-Supported Collaborative Learning (CSCL 2025), pp. 675–677. International Society of the Learning Sciences"
   type: Poster
   links:
     - name: PDF
@@ -14,7 +20,7 @@
 - title: "Empowering Primary School Students to Create Virtual Reality Content: An Outreach Model for Digital Libraries"
   authors: "Ka Wai Lau, Xiao Hu, **Lang Cheng**"
   venue: "JCDL 2024"
-  venue_full: "ACM/IEEE Joint Conference on Digital Libraries"
+  venue_full: "24th ACM/IEEE Joint Conference on Digital Libraries (JCDL 2024), pp. 1–2"
   type: Poster
   links:
     - name: DOI

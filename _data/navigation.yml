@@ -20,3 +20,6 @@ main:
 
   - title: "Education"
     url: "#education"
+
+  - title: "Skills"
+    url: "#skills"
