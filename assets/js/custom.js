@@ -1,87 +1,9 @@
-/* Homepage enhancements: smooth in-page nav, scroll-spy, reveal-on-scroll,
-   back-to-top, dark mode toggle and project tag filter. No dependencies. */
+/* Theme toggle + tabs. No dependencies. */
 (function () {
   'use strict';
-
   var root = document.documentElement;
-  var masthead = document.querySelector('.masthead');
 
-  function headerOffset() {
-    return (masthead ? masthead.offsetHeight : 0) + 16;
-  }
-
-  /* ---- Smooth in-page navigation (replaces the template's fixed -20px offset) ---- */
-  window.addEventListener('click', function (e) {
-    var link = e.target.closest && e.target.closest('a[href^="#"]');
-    if (!link) return;
-    var id = decodeURIComponent(link.getAttribute('href').slice(1));
-    var target = id ? document.getElementById(id) : null;
-    if (!target) return;
-    e.preventDefault();
-    e.stopPropagation(); // keep the old jQuery smoothScroll handler from also firing
-    var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset();
-    window.scrollTo({ top: id === 'about-me' ? 0 : top, behavior: 'smooth' });
-    if (history.replaceState) history.replaceState(null, '', '#' + id);
-  }, true);
-
-  /* ---- Scroll-spy: highlight the nav item of the section in view ---- */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.masthead__menu-item a[href^="#"]'));
-  var sections = navLinks
-    .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
-    .filter(Boolean);
-
-  function updateSpy() {
-    var pos = window.pageYOffset + headerOffset() + 40;
-    var current = sections.length ? sections[0].id : null;
-    sections.forEach(function (s) {
-      if (s.getBoundingClientRect().top + window.pageYOffset <= pos) current = s.id;
-    });
-    if (window.innerHeight + window.pageYOffset >= document.body.scrollHeight - 4 && sections.length) {
-      current = sections[sections.length - 1].id;
-    }
-    navLinks.forEach(function (a) {
-      var on = a.getAttribute('href') === '#' + current && !a.parentNode.classList.contains('masthead__menu-home-item');
-      a.classList.toggle('is-active', on);
-    });
-  }
-
-  /* ---- Back to top ---- */
-  var toTop = document.querySelector('.back-to-top');
-  if (toTop) {
-    toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-  }
-
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(function () {
-      updateSpy();
-      if (toTop) toTop.classList.toggle('is-visible', window.pageYOffset > 600);
-      if (masthead) masthead.classList.toggle('is-scrolled', window.pageYOffset > 8);
-      ticking = false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  onScroll();
-
-  /* ---- Reveal on scroll ---- */
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    root.classList.add('reveal-ready');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('is-visible');
-          io.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
-    Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
-  }
-
-  /* ---- Dark mode toggle ---- */
+  /* Theme toggle */
   var toggle = document.querySelector('.theme-toggle');
   function isDark() {
     var t = root.getAttribute('data-theme');
@@ -96,19 +18,243 @@
     });
   }
 
-  /* ---- Project tag filter ---- */
-  var filterBtns = document.querySelectorAll('.project-filter__btn');
-  var cards = document.querySelectorAll('.project-card');
-  Array.prototype.forEach.call(filterBtns, function (btn) {
-    btn.addEventListener('click', function () {
-      var f = btn.getAttribute('data-filter');
-      Array.prototype.forEach.call(filterBtns, function (b) { b.classList.toggle('is-active', b === btn); });
-      Array.prototype.forEach.call(cards, function (c) {
-        var tags = (c.getAttribute('data-tags') || '').split(' ');
-        var show = f === '*' || tags.indexOf(f) !== -1;
-        c.classList.toggle('is-hidden', !show);
-        if (show) c.classList.add('is-visible');
-      });
+  /* Tabs: each panel is a "page"; the URL hash keeps it linkable */
+  var wrap = document.querySelector('.panels');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs__tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  if (!wrap || !panels.length) return;
+
+  function panelFor(hash) {
+    var id = (hash || '').replace(/^#/, '');
+    if (!id) return panels[0];
+    var el = document.getElementById(decodeURIComponent(id));
+    if (!el) return panels[0];
+    return el.classList.contains('panel') ? el : (el.closest('.panel') || panels[0]);
+  }
+
+  function show(panel, opts) {
+    opts = opts || {};
+    panels.forEach(function (p) {
+      var on = p === panel;
+      p.classList.toggle('is-active', on);
+      p.hidden = !on;
+    });
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('aria-controls') === panel.id;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && t.scrollIntoView && opts.reveal) t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+    document.title = (panel.id === panels[0].id ? '' : tabLabel(panel.id) + ' | ') + baseTitle;
+  }
+
+  var baseTitle = document.title.replace(/^.*\| /, '');
+  function tabLabel(id) {
+    var t = tabs.filter(function (x) { return x.getAttribute('aria-controls') === id; })[0];
+    return t ? t.textContent.trim() : id;
+  }
+
+  function go(hash) {
+    var panel = panelFor(hash);
+    show(panel, { reveal: true });
+    var target = document.getElementById((hash || '').replace(/^#/, ''));
+    if (target && target !== panel) {
+      target.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var hash = a.getAttribute('href');
+    if (hash.length < 2 || !document.getElementById(hash.slice(1))) return;
+    e.preventDefault();
+    if (location.hash !== hash && history.pushState) history.pushState(null, '', hash);
+    go(hash);
+  });
+
+  window.addEventListener('popstate', function () { go(location.hash); });
+  window.addEventListener('hashchange', function () { go(location.hash); });
+
+  /* Arrow keys move between tabs (WAI-ARIA tabs pattern) */
+  tabs.forEach(function (t, i) {
+    t.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); next.focus(); next.click(); }
     });
   });
+
+  show(panelFor(location.hash));
+  wrap.classList.add('is-ready');
+  var deep = location.hash && document.getElementById(location.hash.slice(1));
+  if (deep && !deep.classList.contains('panel')) deep.scrollIntoView();
+})();
+
+/* Research map: draws an ENA-style network from _data/research_map.yml */
+(function () {
+  'use strict';
+  var fig = document.getElementById('research-map');
+  var dataEl = document.getElementById('research-map-data');
+  if (!fig || !dataEl) return;
+
+  var data;
+  try { data = JSON.parse(dataEl.textContent); } catch (e) { return; }
+  var NS = 'http://www.w3.org/2000/svg';
+  var edgesG = fig.querySelector('.map__edges');
+  var nodesG = fig.querySelector('.map__nodes');
+  var defaultCap = fig.querySelector('.map__default');
+  var detailCap = fig.querySelector('.map__detail');
+  var total = data.projects.length;
+
+  var nodes = {};
+  data.nodes.forEach(function (n) { nodes[n.id] = { n: n, count: 0, projects: [] }; });
+
+  var pairs = {};
+  data.projects.forEach(function (p) {
+    var t = p.themes.filter(function (id) { return nodes[id]; });
+    t.forEach(function (id) { nodes[id].count++; nodes[id].projects.push(p.title); });
+    for (var i = 0; i < t.length; i++) {
+      for (var j = i + 1; j < t.length; j++) {
+        var key = [t[i], t[j]].sort().join('|');
+        pairs[key] = (pairs[key] || 0) + 1;
+      }
+    }
+  });
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  var edgeEls = [];
+  Object.keys(pairs).sort(function (a, b) { return pairs[a] - pairs[b]; }).forEach(function (key, i) {
+    var ids = key.split('|'), a = nodes[ids[0]].n, b = nodes[ids[1]].n, w = pairs[key];
+    var line = el('line', {
+      x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+      'stroke-width': (0.6 + (w - 1) * 1.6).toFixed(2),
+      'class': 'map__edge map__edge--w' + Math.min(w, 3)
+    });
+    var len = Math.hypot(b.x - a.x, b.y - a.y);
+    line.style.setProperty('--len', len.toFixed(1));
+    line.style.setProperty('--i', i);
+    line.dataset.a = ids[0];
+    line.dataset.b = ids[1];
+    edgesG.appendChild(line);
+    edgeEls.push(line);
+  });
+
+  var nodeEls = [];
+  data.nodes.forEach(function (n, i) {
+    var info = nodes[n.id];
+    var g = el('g', { 'class': 'map__node', transform: 'translate(' + n.x + ' ' + n.y + ')', tabindex: '0', role: 'button',
+      'aria-label': n.label + ', used in ' + info.count + ' of ' + total + ' projects' });
+    g.style.setProperty('--i', i);
+    g.dataset.id = n.id;
+    g.appendChild(el('circle', { r: (2.5 + info.count * 1.4).toFixed(1), 'class': 'map__dot' }));
+    var r = 2.5 + info.count * 1.4;
+    var pos = {
+      right: { x: r + 6, y: 4, anchor: 'start' },
+      left: { x: -(r + 6), y: 4, anchor: 'end' },
+      below: { x: 0, y: r + 15, anchor: 'middle' },
+      above: { x: 0, y: -(r + 8), anchor: 'middle' }
+    }[n.side] || { x: r + 6, y: 4, anchor: 'start' };
+    var text = el('text', { x: pos.x, y: pos.y, 'text-anchor': pos.anchor, 'class': 'map__label' });
+    text.textContent = n.label;
+    g.appendChild(text);
+    nodesG.appendChild(g);
+    nodeEls.push(g);
+  });
+
+  /* Default side list: skills used in the most projects */
+  var topList = fig.querySelector('.map__top');
+  if (topList) {
+    data.nodes.slice().sort(function (a, b) { return nodes[b.id].count - nodes[a.id].count; })
+      .slice(0, 5).forEach(function (n) {
+        var li = document.createElement('li');
+        var name = document.createElement('span');
+        name.textContent = n.label;
+        var c = document.createElement('span');
+        c.className = 'map__top-count';
+        c.textContent = nodes[n.id].count + ' projects';
+        li.appendChild(name);
+        li.appendChild(c);
+        li.addEventListener('mouseenter', function () { if (!pinned) focusNode(n.id, true); });
+        li.addEventListener('mouseleave', function () { if (!pinned) focusNode(null, true); });
+        topList.appendChild(li);
+      });
+  }
+
+  var pinned = null;
+  function focusNode(id, quiet) {
+    fig.classList.toggle('is-tracing', !!id);
+    edgeEls.forEach(function (e) {
+      e.classList.toggle('is-on', !!id && (e.dataset.a === id || e.dataset.b === id));
+    });
+    var linked = {};
+    edgeEls.forEach(function (e) {
+      if (e.dataset.a === id) linked[e.dataset.b] = 1;
+      if (e.dataset.b === id) linked[e.dataset.a] = 1;
+    });
+    nodeEls.forEach(function (g) {
+      g.classList.toggle('is-on', g.dataset.id === id);
+      g.classList.toggle('is-linked', !!linked[g.dataset.id]);
+    });
+    if (quiet) return;
+    if (id) {
+      var info = nodes[id];
+      detailCap.textContent = '';
+      var head = document.createElement('strong');
+      head.textContent = info.n.label;
+      var sub = document.createElement('span');
+      sub.textContent = ', used in ' + info.count + ' of ' + total + ' projects:';
+      var ul = document.createElement('ul');
+      info.projects.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+      detailCap.appendChild(head);
+      detailCap.appendChild(sub);
+      detailCap.appendChild(ul);
+      detailCap.hidden = false;
+      defaultCap.hidden = true;
+    } else {
+      detailCap.hidden = true;
+      defaultCap.hidden = false;
+    }
+  }
+
+  nodeEls.forEach(function (g) {
+    var id = g.dataset.id;
+    g.addEventListener('mouseenter', function () { if (!pinned) focusNode(id); });
+    g.addEventListener('mouseleave', function () { if (!pinned) focusNode(null); });
+    g.addEventListener('focus', function () { focusNode(id); });
+    g.addEventListener('blur', function () { if (!pinned) focusNode(null); });
+    g.addEventListener('click', function (e) {
+      e.stopPropagation();
+      pinned = pinned === id ? null : id;
+      focusNode(pinned);
+    });
+    g.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new MouseEvent('click')); }
+      if (e.key === 'Escape') { pinned = null; focusNode(null); g.blur(); }
+    });
+  });
+  document.addEventListener('click', function () { if (pinned) { pinned = null; focusNode(null); } });
+
+  /* One orchestrated moment: the network draws itself once on load */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    fig.classList.add('is-drawing');
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { fig.classList.add('is-drawn'); });
+    });
+  }
 })();

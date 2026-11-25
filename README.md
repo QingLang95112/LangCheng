@@ -3,12 +3,15 @@
 >
 > | 想改什么 | 改哪个文件 |
 > |---|---|
-> | 个人开发的小项目（Projects 卡片） | `_data/projects.yml`（文件顶部有字段说明和示例），封面图放 `images/projects/` |
+> | 个人开发的小项目（Projects） | `_data/projects.yml`（文件顶部有字段说明和示例），缩略图放 `images/projects/` |
 > | 论文 Publications | `_data/publications.yml` |
-> | About / News / Research / Honors / Education 文字 | `_pages/about.md` |
-> | 顶部导航 | `_data/navigation.yml` |
-> | 主题色、样式 | `_sass/_custom.scss`（改 `--accent` 即可换主色） |
-> | 交互（暗色模式、筛选、滚动高亮） | `assets/js/custom.js` |
+> | 首页技能网络图（黑板） | `_data/research_map.yml`（新增项目时加一行用到的技能，连线自动计算） |
+> | 简历 PDF（已去掉手机号） | `files/Lang_Cheng_Resume.pdf`，替换同名文件即可更新 |
+> | 各标签页文字（About / Experience / Background 等） | `_pages/about.md` |
+> | 顶部标签页（About / Research / ...） | `_data/navigation.yml`（url 对应 `_pages/about.md` 里各个 panel 的 id） |
+> | 样式（字体、颜色、间距） | `assets/css/site.scss`（颜色在文件顶部 `:root` 里） |
+> | 交互（暗色模式、目录高亮） | `assets/js/custom.js` |
+> | 页面骨架 | `_layouts/default.html` |
 
 <h1 align="center">
 AcadHomepage

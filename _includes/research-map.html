@@ -1,0 +1,24 @@
+<figure class="board map" id="research-map">
+  <div class="board__canvas">
+    <svg class="map__svg" viewBox="-320 -150 640 300" role="img" aria-labelledby="map-title map-caption">
+      <g class="map__axes" aria-hidden="true">
+        <line x1="-310" y1="0" x2="310" y2="0"/>
+        <line x1="0" y1="-145" x2="0" y2="145"/>
+      </g>
+      <g class="map__edges"></g>
+      <g class="map__nodes"></g>
+    </svg>
+  </div>
+  <figcaption class="board__side">
+    <h2 class="board__title" id="map-title">Where I’ve used each skill</h2>
+    <div class="map__caption" id="map-caption" aria-live="polite">
+      <div class="map__default">
+        <p>Each dot is a skill. Lines join skills I used together on a project, and thicker lines mean more projects. Hover or tap a skill to see where I used it.</p>
+        <p class="map__top-title">Most used</p>
+        <ol class="map__top"></ol>
+      </div>
+      <div class="map__detail" hidden></div>
+    </div>
+  </figcaption>
+  <script type="application/json" id="research-map-data">{{ site.data.research_map | jsonify }}</script>
+</figure>

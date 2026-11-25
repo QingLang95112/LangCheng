@@ -1,22 +1,12 @@
-# main links
+# Tabs across the top of the site. url must match a panel id in _pages/about.md
 main:
   - title: "About"
-    url: "#about-me"
-
-  - title: "News"
-    url: "#news"
-
-  - title: "Publications"
-    url: "#publications"
-
-  - title: "Research"
-    url: "#research"
-
+    url: "#about"
+  - title: "Experience"
+    url: "#experience"
   - title: "Projects"
     url: "#projects"
-
-  - title: "Honors"
-    url: "#honors-and-awards"
-
-  - title: "Education"
-    url: "#education"
+  - title: "Publications"
+    url: "#publications"
+  - title: "Background"
+    url: "#background"
